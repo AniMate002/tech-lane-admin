@@ -3,10 +3,11 @@ import { Schema, model, models } from "mongoose"
 import { mongooseConnect } from "./mongoose"
 
 const ProductSchema = new Schema<IProduct>({
-    title: {type: String},
-    description: {type: String},
-    price: {type: Number},
-    country: {type: String}
+    title: {type: String, required: true},
+    description: {type: String, required: true},
+    price: {type: Number, required: true},
+    country: {type: String, required: true},
+    image: {type: String, required: true}
 })
 
 

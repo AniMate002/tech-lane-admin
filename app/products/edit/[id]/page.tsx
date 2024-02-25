@@ -1,33 +1,51 @@
-"use client"
+'use client'
+
 import InnerContainer from "@/components/Containers/InnerContainer";
 import axios from "axios";
-import { useRouter } from "next/navigation";
-import { useState, FormEvent } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import { FormEvent, useEffect, useState } from "react";
+import { IProduct } from "../../new/page";
 
-export interface IProduct {
-    id?: string,
-    title: string,
-    description: string,
-    price: number,
-    country: string,
-    image: string
+async function getProduct(_id: string):Promise<IProduct>{
+    const res = await axios.get(`/api/products/edit/${_id}`)
+    const product = res.data as IProduct
+    return product
 }
 
-const NewProduct = () => {
+const ProductEdit = () => {
     const router = useRouter()
+    const pathname = usePathname()
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState(0)
     const [country, setCountry] = useState('')
     const [image, setImage] = useState('')
-    async function formSubmitHadler (e: FormEvent<HTMLFormElement>){
+    async function formSubmitHandler(e:FormEvent<HTMLFormElement>){
         e.preventDefault()
-        const newObj: IProduct = {title, description, price, country, image}
-        await axios.post('/api/products', newObj)
-        await router.push('/products')
+        const quer = pathname.split('/')
+        const _id = quer[quer.length - 1]
+        const updatedProduct = {title, description, price, country, image}
+        axios.put(`/api/products/edit/${_id}`, updatedProduct)
+            .then(() => router.push('/products'))
+
+        // console.log("Current ID: ", { _id })
     }
+    useEffect(() => {
+        const quer = pathname.split('/')
+        const _id = quer[quer.length - 1]
+        getProduct(_id)
+            .then(product => {
+                setTitle(product.title)
+                setDescription(product.description)
+                setPrice(product.price)
+                setCountry(product.country)
+                setCountry(product.country)
+                setImage(product.image)
+            })
+        
+    }, [])
     return (
-        <form onSubmit={e => formSubmitHadler(e)} method="post" action={'/products'}>
+        <form onSubmit={e => formSubmitHandler(e)}>
             <div className="flex flex-wrap justify-center gap-10 w-full">
                 <InnerContainer title="Product name" className="w-[500px]">
                     <input name="title" value={title} onChange={e => setTitle(e.target.value)} type="text" placeholder="Product name..." className="mt-8 rounded-lg border-2 px-4 py-2 w-full"/>
@@ -50,4 +68,4 @@ const NewProduct = () => {
     );
 }
  
-export default NewProduct;
+export default ProductEdit;
