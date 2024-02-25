@@ -10,7 +10,7 @@ const OuterContHeader = () => {
     const pathname = usePathname().split('/')
     const renderedHistory = pathname.map((el, index) => {
         return (
-            <div className="flex items-center">
+            <div className="flex items-center" key={index}>
                 <Link className="hover:underline" href={pathname.filter((el, i) => i <= index).join('/')}>{el}</Link>
                 {index === 0 ? "" : index === pathname.length - 1 ? "" : 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mx-4">
