@@ -1,6 +1,6 @@
 {
   "name": "tech-lane-admin",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -15,7 +15,8 @@
     "next": "14.1.0",
     "next-connect": "^1.0.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sweetalert2": "^11.10.5"
   },
   "devDependencies": {
     "@types/node": "^20",

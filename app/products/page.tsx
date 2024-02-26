@@ -17,7 +17,7 @@ async function getProducts(){
 
 const Products = async () => {
     const products: Array<IProduct> = await getProducts()
-    console.log(products)
+    // console.log(products)
     return (
         <div>
             <Link href={'/products/new'} className="text-white rounded-md bg-blue-500 px-8 py-4 inline-flex items-center gap-2 hover:bg-blue-400 transition-all duration-200">

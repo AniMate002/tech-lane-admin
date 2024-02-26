@@ -1,14 +1,14 @@
+// 'use client'
 import { cabin } from "@/app/layout";
 import { IProduct } from "@/app/products/new/page";
-import Image from "next/image";
+import ProductDeleteBtn from "./ProductDeleteBtn";
 
 interface ProductsCardProps {
     product: IProduct
 }
 
 const ProductsCard:React.FC<ProductsCardProps> = ({ product }) => {
-    const image = product.image
-    console.log("Singleproduct: ", image)
+    
     return (
         <div className={cabin.className + " flex flex-col justify-between p-5 bg-white rounded-xl mt-10"}>
             <div>
@@ -26,10 +26,7 @@ const ProductsCard:React.FC<ProductsCardProps> = ({ product }) => {
                     <span>Edit</span>
                     <i className="fa-regular fa-pen-to-square text-sm"></i>
                 </a>
-                <button className="px-4 py-2 w-fit bg-white  text-black rounded-xl hover:bg-slate-200 transition-all duration-200 inline-flex items-center gap-2">
-                    <span>Delete</span>
-                    <i className="fa-regular fa-trash-can text-md"></i>
-                </button>
+                <ProductDeleteBtn id={product.id || ''} title={product.title}/>
             </div>
         </div>
     );
