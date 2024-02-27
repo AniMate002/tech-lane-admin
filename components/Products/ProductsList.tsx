@@ -11,7 +11,7 @@ const ProductsList:React.FC<ProductsListProps> = ({ products }) => {
         return <ProductsCard key={product.id} product={product}/>
     })
     return (
-        <div className="flex justify-between">
+        <div className="flex justify-between flex-wrap">
             { renderedProducts }
         </div>
     );

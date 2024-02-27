@@ -11,7 +11,7 @@ const getIdEndPoint = (req: Request) => {
 
 export async function GET(req: Request) {
     const _id = getIdEndPoint(req)
-    mongooseConnect()
+    await mongooseConnect()
     const product = await Product.findById(_id)
     return NextResponse.json(product)
 }
