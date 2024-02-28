@@ -11,3 +11,10 @@ export async function POST(req: Request, res: NextResponse){
     await Category.create({ name, svgCode, parent })
     return NextResponse.json({name, svgCode, parent})
 }
+
+
+export async function GET(){
+    await mongooseConnect()
+    const categories = await Category.find()
+    return NextResponse.json(categories)
+}

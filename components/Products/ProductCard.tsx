@@ -12,8 +12,8 @@ const ProductsCard:React.FC<ProductsCardProps> = ({ product }) => {
     return (
         <div className={cabin.className + " flex flex-col justify-between p-5 bg-white rounded-xl mt-10"}>
             <div>
-                <div className="overflow-hidden w-[250px] h-[300px] flex items-center justify-center">
-                    <img src={product.image} alt={product.description} className="rounded-xl min-w-max h-[300px]"/>
+                <div className="overflow-hidden w-[250px] h-[300px] flex items-center rounded-xl justify-center">
+                    <img src={product.image} alt={product.description} className=" min-h-[300px]"/>
                 </div>
                 <div className="mt-4">
                     <h4 className="mt-4 font-bold text-xl hover:underline">{product.title}</h4>
@@ -22,7 +22,7 @@ const ProductsCard:React.FC<ProductsCardProps> = ({ product }) => {
                 </div>
             </div>
             <div className="flex items-center gap-2">
-                <a className="px-4 py-2 w-fit bg-black text-white rounded-xl hover:bg-slate-700 transition-all duration-200 inline-flex items-center gap-2" href={`/products/edit/${product.id}`}>
+                <a className="px-4 py-1 w-fit bg-blue-500 text-white rounded-lg hover:bg-slate-200 hover:text-black transition-all duration-200 inline-flex items-center gap-2" href={`/products/edit/${product.id}`}>
                     <span>Edit</span>
                     <i className="fa-regular fa-pen-to-square text-sm"></i>
                 </a>

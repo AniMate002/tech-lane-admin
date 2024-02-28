@@ -1,30 +1,44 @@
 'use client'
 
-import { FormEvent, useState } from "react";
-import BlueBtn from "../Reusable/BlueBtn";
-import axios from "axios";
-import { ICategory } from "@/models/Category";
+import { FormEvent, useEffect, useState } from "react"
+import BlueBtn from "../Reusable/BlueBtn"
+import { ICategory } from "@/models/Category"
+import { usePathname, useRouter } from "next/navigation"
+import axios from "axios"
 
-interface CategoriesFormProps {
+interface EditCategoryFormProps {
     categories: Array<ICategory>
 }
 
-const CategoriesForm:React.FC<CategoriesFormProps> = ({ categories }) => {
+export const getIdClient = (pathname: string) => pathname.split('/')[pathname.split('/').length -1]
+
+const EditCategoryForm:React.FC<EditCategoryFormProps> = ({ categories }) => {
+    const pathname = usePathname()
+    const router = useRouter()
     const [name, setName] = useState<string>('')
     const [svgCode, setSvg] = useState<string>('')
     const [parent, setParent] = useState<string>('')
-    async function addCategoryHandler(e: FormEvent<HTMLFormElement>){
-        e.preventDefault()
-        const res = await axios.post('/api/categories', { name, svgCode, parent })
-        window.location.reload()
-    }
+    useEffect(() => {
+        const id = getIdClient(pathname)
+        const categoryToEdit = categories.find(cat => cat._id == id)
+        if(categoryToEdit){
+            setName(categoryToEdit?.name)
+            setSvg(categoryToEdit.svgCode)
+            setParent(categoryToEdit.parent)
+        }
 
+    }, [])
     const renderedCatOptions = categories.map(category => {
         return <option key={category._id} value={category.name}>{category.name}</option>
     })
+    async function formHandler(e: FormEvent<HTMLFormElement>){
+        e.preventDefault()
+        const response = await axios.put(`/api/categories/edit/${getIdClient(pathname)}`, {name, svgCode, parent})
+        await router.replace('/categories')
+    }
     return (
-        <form onSubmit={e => addCategoryHandler(e)}>
-            <h3 className="text-xl text-slate-600 text-center uppercase font-bold">Add new category</h3>
+        <form onSubmit={e => formHandler(e)}>
+            <h3 className="text-xl text-slate-600 text-center uppercase font-bold">Edit category</h3>
             <hr className="my-12"/>
             <div className="flex justify-around">
                 <label>
@@ -47,7 +61,7 @@ const CategoriesForm:React.FC<CategoriesFormProps> = ({ categories }) => {
                 </label>
             </div>
             <BlueBtn type="submit" className="mx-auto mt-10">
-                <span>Add category</span>
+                <span>Update category</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
                 </svg>
@@ -56,4 +70,4 @@ const CategoriesForm:React.FC<CategoriesFormProps> = ({ categories }) => {
     );
 }
  
-export default CategoriesForm;
+export default EditCategoryForm;

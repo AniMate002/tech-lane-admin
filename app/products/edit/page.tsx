@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 
 const EdirRedirect = () => {
     const router = useRouter()
-    router.push('/products')
+    router.replace('/products')
 }
  
 export default EdirRedirect;
