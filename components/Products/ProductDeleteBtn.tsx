@@ -28,7 +28,7 @@ const ProductDeleteBtn:React.FC<ProductDeleteBtnProps> = ({ title, id }) => {
         })
     }
     return (
-        <button onClick={showDeleteModal} className="px-4 py-1 w-fit bg-red-50  text-black rounded-lg hover:bg-slate-200 transition-all duration-200 inline-flex items-center gap-2">
+        <button onClick={showDeleteModal} className="py-2 w-full justify-center bg-slate-100  text-blue-500 rounded-lg hover:bg-slate-200 transition-all duration-200 inline-flex items-center gap-2">
             <span>Delete</span>
             <i className="fa-regular fa-trash-can text-md"></i>
         </button>

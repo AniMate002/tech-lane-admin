@@ -127,7 +127,7 @@ const ProductEdit = () => {
                     </div>
                 </InnerContainer>
                 <InnerContainer title="Description" className="w-[500px]">
-                    <input name="description" value={description} onChange={e => setDescription(e.target.value)} type="text" placeholder="Description..." className="mt-8 rounded-lg border-2 px-4 py-2 w-full"/>
+                    <textarea name="description" value={description} onChange={e => setDescription(e.target.value)} placeholder="Description..." className="mt-8 rounded-lg border-2 px-4 py-2 w-full"></textarea>
                 </InnerContainer>
                 <InnerContainer title="Price (in USD) " className="w-[500px]">
                     <input name="price" value={price} onChange={e => setPrice(Number(e.target.value))} type="number" placeholder="Price..." className="mt-8 rounded-lg border-2 px-4 py-2 w-full"/>
