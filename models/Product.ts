@@ -1,5 +1,5 @@
 import { IProduct } from "@/app/products/new/page"
-import { Schema, model, models } from "mongoose"
+import mongoose, { Schema, model, models, mongo } from "mongoose"
 import { mongooseConnect } from "./mongoose"
 
 const ProductSchema = new Schema<IProduct>({
@@ -8,7 +8,9 @@ const ProductSchema = new Schema<IProduct>({
     price: {type: Number, required: true},
     country: {type: String, required: true},
     image: {type: String, required: true},
-    category: {type: String}
+    category: {type: String},
+    colors: [String],
+    memories: [Number]
 })
 
 

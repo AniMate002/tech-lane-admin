@@ -12,11 +12,9 @@ export async function POST(req: Request, res: NextApiResponse){
     const data = await req.json()
 
     await mongooseConnect()
-    if(method === 'POST'){
-        const productDoc = await Product.create(data)
-        console.log(productDoc, method)
-        return new NextResponse(JSON.stringify(data))
-    }
+    const productDoc = await Product.create(data)
+    console.log(productDoc, method)
+    return NextResponse.json(data)
 }
 
 

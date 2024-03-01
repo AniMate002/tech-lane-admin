@@ -28,12 +28,44 @@ const ProductEdit = () => {
     const [country, setCountry] = useState('')
     const [image, setImage] = useState('')
     const [category, setCategory] = useState<string>('')
+    const [colors, setColors] = useState<Array<string>>([])
+    const [memories, setMemories] = useState<Array<number>>([])
     const [categories, setCategories] = useState<Array<ICategory> | null>(null)
+    const AllColors = ['white','gray','rose','orange','sky','black']
+    const AllMemories = [32,64,128,256,512,1024]
+    const renderColors = (colors: Array<string>) => {
+        return colors.map(color => {
+            return <div key={color} onClick={() => addColor(color)} className={`w-[30px] h-[30px] block ${color}Bg rounded-full border-2 border-slate-200 hover:border-slate-300 cursor-pointer`}></div>
+        })
+    }
+    const renderMemories = (memories: Array<number>) => {
+        return memories.map(memory => {
+            return <div onClick={() => addMemory(memory)} key={memory} className="cursor-pointer bg-slate-100 text-blue-400 text-sm hover:outline-1 hover:outline hover:outline-slate-200 p-1 rounded-lg">{memory}GB</div>
+        })
+    }
+
+    function addColor(color: string){
+        if(!colors.includes(color)){
+            setColors(prev => [...prev, color])
+        }else{
+            const filteredColors = colors.filter(col => col !== color)
+            setColors(filteredColors)
+        }
+    }
+    function addMemory(memory: number){
+        if(!memories.includes(memory)){
+            setMemories(prev => [...prev, memory])
+        }else{
+            const filterdMemories = memories.filter(mem => mem !== memory)
+            setMemories(filterdMemories)
+        }
+        setMemories(prev => prev.sort((a, b) => a - b))
+    }
     async function formSubmitHandler(e:FormEvent<HTMLFormElement>){
         e.preventDefault()
         const quer = pathname.split('/')
         const _id = quer[quer.length - 1]
-        const updatedProduct = {title, description, price, country, image, category}
+        const updatedProduct = {title, description, price, country, image, category, colors, memories}
         axios.put(`/api/products/edit/${_id}`, updatedProduct)
             .then(() => router.push('/products'))
 
@@ -51,6 +83,8 @@ const ProductEdit = () => {
                 setCountry(product.country)
                 setImage(product.image)
                 setCategory(product.category)
+                setColors(product.colors)
+                setMemories(product.memories)
             })
         
         getCategories().then(cat => setCategories(cat))
@@ -71,6 +105,26 @@ const ProductEdit = () => {
                         <option value="">Uncategorized</option>
                         { renderedCategories }
                     </select>
+                </InnerContainer>
+                <InnerContainer className="w-[500px]" title="Colors">
+                    <p className="mt-4 mb-1 text-gray-500">Selected colors</p>
+                    <div className="flex items-center gap-2">
+                        { colors.length > 0 ? renderColors(colors) : <p className="text-slate-400 text-sm">No colors selected...</p> }
+                    </div>
+                    <p className="mt-4 mb-1 text-gray-500">All colors</p>
+                    <div className="flex items-center gap-2">
+                        { renderColors(AllColors) }
+                    </div>
+                </InnerContainer>
+                <InnerContainer className="w-[500px]" title="Memory">
+                    <p className="mt-4 mb-1 text-gray-500">Selected memory</p>
+                    <div className="flex items-center gap-2">
+                        { memories.length > 0 ? renderMemories(memories) : <p className="text-slate-400 text-sm">No memory selected...</p>}
+                    </div>
+                    <p className="mt-4 mb-1 text-gray-500">All memories</p>
+                    <div className="flex items-center gap-2">
+                        { renderMemories(AllMemories) }
+                    </div>
                 </InnerContainer>
                 <InnerContainer title="Description" className="w-[500px]">
                     <input name="description" value={description} onChange={e => setDescription(e.target.value)} type="text" placeholder="Description..." className="mt-8 rounded-lg border-2 px-4 py-2 w-full"/>

@@ -6,3 +6,28 @@
 input:focus{
     outline: none;
 }
+
+.roseBg{
+    background-color: rgb(255, 103, 103);
+}
+
+
+.whiteBg{
+    background-color: white;
+}
+
+.grayBg{
+    background-color: rgb(163, 163, 163);
+}
+
+.orangeBg{
+    background-color: rgb(255, 202, 103);
+}
+
+.skyBg{
+    background-color: rgb(94, 192, 231);
+}
+
+.blackBg{
+    background-color: black;
+}

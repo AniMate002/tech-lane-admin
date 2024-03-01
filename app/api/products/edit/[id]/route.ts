@@ -17,9 +17,9 @@ export async function GET(req: Request) {
 }
 
 export async function PUT(req:Request, res: NextResponse){
-    const { title, description, price, image, country, category} = await req.json()
+    const { title, description, price, image, country, category, colors, memories} = await req.json()
     const _id = getIdEndPoint(req)
     mongooseConnect()
-    const product = await Product.findByIdAndUpdate(_id, { title, description, price, image, country, category})
+    const product = await Product.findByIdAndUpdate(_id, { title, description, price, image, country, category, colors, memories})
     return NextResponse.json(product)
 }

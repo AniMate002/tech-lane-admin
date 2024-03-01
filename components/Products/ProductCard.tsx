@@ -13,11 +13,12 @@ const ProductsCard:React.FC<ProductsCardProps> = ({ product }) => {
         <div className={cabin.className + " flex flex-col justify-between p-5 bg-white rounded-xl mt-10"}>
             <div>
                 <div className="overflow-hidden w-[250px] h-[300px] flex items-center rounded-xl justify-center">
-                    <img src={product.image} alt={product.description} className=" min-h-[300px]"/>
+                    <img src={product.image} alt={product.description} className="min-h-[300px] max-h-[300px] min-w-max"/>
                 </div>
                 <div className="mt-4">
                     <h4 className="mt-4 font-bold text-xl hover:underline">{product.title}</h4>
-                    <h5 className="text-sm mb-5">{(new Date()).getFullYear()}</h5>
+                    <h5 className="text-sm">{(new Date()).getFullYear()}</h5>
+                    <p className="mt-2 text-blue-500">{product.category}</p>
                     <p className="w-[250px] text-slate-500 text-ellipsis mb-4 whitespace-nowrap overflow-hidden">{product.description}</p>
                 </div>
             </div>
