@@ -76,3 +76,109 @@ export const allCurrences: Array<ICurrency> = [
         value: 'CAD'
     }
 ]
+
+
+export interface IPaymentItem{
+    id: number,
+    bank: string,
+    title: string,
+    date: string,
+    time: string,
+    amount: number,
+    currency: string
+}
+
+export const allPayments: Array<IPaymentItem> = [
+    {
+        id: 1,
+        bank: "paypal",
+        title: "Deposit PayPal",
+        date: "2024-03-03",
+        time: "10:10",
+        amount: 2000,
+        currency: "EUR"
+    },
+    {
+        id: 2,
+        bank: "apple-pay",
+        title: "Deposit ApplePay",
+        date: "2024-03-05",
+        time: "12:38",
+        amount: 1500,
+        currency: "USD"
+    },
+    {
+        id: 3,
+        bank: "google-pay",
+        title: "Deposit GooglePay",
+        date: "2024-03-06",
+        time: "13:29",
+        amount: 300,
+        currency: "JPY"
+    },
+    {
+        id: 4,
+        bank: "paypal",
+        title: "Deposit PayPal",
+        date: "2024-03-04",
+        time: "11:54",
+        amount: 2000,
+        currency: "EUR"
+    },
+    {
+        id: 5,
+        bank: "amazon-pay",
+        title: "Deposit AmazonPay",
+        date: "2024-03-07",
+        time: "14:36",
+        amount: 250,
+        currency: "CAD"
+    }
+]
+
+
+export interface ISingleRecentActivity{
+    id: number,
+    country: string,
+    percentage: number,
+    color: string,
+}
+
+export const allRecentActivities:Array<ISingleRecentActivity> = [
+    {
+        id: 1,
+        country: 'USA',
+        percentage: 43,
+        color: '#f2444a'
+    },
+    {
+        id: 2,
+        country: 'Germany',
+        percentage: 20,
+        color: '#c444f2'
+    },
+    {
+        id: 3,
+        country: 'France',
+        percentage: 12,
+        color: '#44b2f2'
+    },
+    {
+        id: 4,
+        country: 'Canada',
+        percentage: 5,
+        color: '#44f28c'
+    },
+    {
+        id:5,
+        country: 'Japan',
+        percentage: 2,
+        color: '#d5f244'
+    },
+    {
+        id: 6,
+        country: 'Poland',
+        percentage: 18,
+        color: '#f29e44'
+    }
+]

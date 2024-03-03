@@ -38,8 +38,12 @@ const CurrencyConverter = () => {
             setConvertedMoney(0)
         }
     }, [money, convertFrom, convertTo, rates])
+    useEffect(() => {
+        if(!convertedMoney)
+            setConvertedMoney(0)
+    }, [convertedMoney])
 
-    const renderedCurrences = allCurrences.map(curr => <button onClick={() => changeCurrencyBtn(curr.value)} className="bg-blue-50 rounded-xl px-3 py-1 text-md text-blue-500">{curr.name}</button>)
+    const renderedCurrences = allCurrences.map(curr => <button key={curr.name} onClick={() => changeCurrencyBtn(curr.value)} className="bg-blue-50 rounded-xl px-3 py-1 text-md text-blue-500">{curr.name}</button>)
 
     return (
         <InnerContainer className="flex-grow">

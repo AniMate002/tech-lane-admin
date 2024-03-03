@@ -1,8 +1,9 @@
 import CurrencyConverter from "@/components/Dashboard/CurrencyConverter";
 import GraphRevenue from "@/components/Dashboard/GraphRevenue";
+import PaymentHistory from "@/components/Dashboard/PaymentHistory/PaymentHistory";
+import RecentActivity from "@/components/Dashboard/RecentActivity";
 import StatList from "@/components/Dashboard/StatList";
 import { Metadata } from "next";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Tech Lane Admin",
@@ -18,6 +19,10 @@ export default function Home() {
             <GraphRevenue />
           </div>
           <CurrencyConverter />
+        </div>
+        <div className="flex justify-between gap-6 mt-10 items-stretch">
+          <PaymentHistory />
+          <RecentActivity />
         </div>
       </div>
   );
