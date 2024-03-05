@@ -12,7 +12,7 @@ const InnerContainer:React.FC<InnerContainerProps> = ({title, children, classNam
         <div {...props} className={nunito.className + " px-10 py-5 bg-white rounded-xl " + className}>
             {title ? 
             <div>
-                <h4 className="text-slate-500 text-xl mb-4">{title}</h4>
+                <h4 className="text-slate-500 text-2xl mb-4">{title}</h4>
                 <hr />
             </div>
                 :

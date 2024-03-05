@@ -182,3 +182,120 @@ export const allRecentActivities:Array<ISingleRecentActivity> = [
         color: '#f29e44'
     }
 ]
+
+
+export interface IBrowserVisitors {
+    id: string,
+    browser: string,
+    visitors: number
+}
+
+export const allVisitorsByBrowser: Array<IBrowserVisitors> = [
+    {
+        id: '1',
+        browser: 'Google',
+        visitors: 1583
+    },
+    {
+        id: '2',
+        browser: 'Safari',
+        visitors: 1204
+    },
+    {
+        id: '3',
+        browser: 'Opera',
+        visitors: 1120,
+    },
+    {
+        id: '4',
+        browser: 'Yandex',
+        visitors: 752
+    },
+    {
+        id: '5',
+        browser: 'FireFox',
+        visitors: 339
+    },
+    {
+        id: '6',
+        browser: 'Edge',
+        visitors: 995
+    }
+] 
+
+
+export interface IMedia {
+    id: string,
+    name: string,
+    description: string,
+    color: string,
+    icon: string,
+    date: string,
+    time: string,
+    companyTitle: string,
+    companySubtitle: string,
+    status: 'Active' | 'Ending' | 'Closed' | 'Posed'
+}
+
+export const allSocialMedia: Array<IMedia> = [
+    {
+        id: "1",
+        name: "Facebook",
+        description: "Summer Campain",
+        color: "#7799ff",
+        icon: "facebook-f",
+        date: "2024-03-05",
+        time: "10:00 AM",
+        companyTitle: "Facebook Inc.",
+        companySubtitle: "Connecting People",
+        status: "Active"
+    },
+    {
+        id: "2",
+        name: "Twitter",
+        description: "Unique Watch",
+        color: "#56d5ff",
+        icon: "twitter",
+        date: "2024-03-05",
+        time: "11:30 AM",
+        companyTitle: "Twitter",
+        companySubtitle: "What's happening?",
+        status: "Active"
+    },
+    {
+        id: "3",
+        name: "Instagram",
+        description: "Released Single",
+        color: "#ff72c2",
+        icon: "instagram",
+        date: "2024-03-05",
+        time: "1:00 PM",
+        companyTitle: "Instagram",
+        companySubtitle: "Bringing closer",
+        status: "Closed"
+    },
+    {
+        id: "4",
+        name: "LinkedIn",
+        color: "#0077b5",
+        icon: "linkedin-in",
+        date: "2024-03-05",
+        description: 'Jobs',
+        time: "2:30 PM",
+        companyTitle: "LinkedIn",
+        companySubtitle: "Connecting the world",
+        status: "Ending"
+    },
+    {
+        id: "5",
+        name: "YouTube",
+        color: "#ff7171",
+        icon: "youtube",
+        description: 'Premier',
+        date: "2024-03-05",
+        time: "4:00 PM",
+        companyTitle: "YouTube",
+        companySubtitle: "Broadcast Yourself",
+        status: "Posed"
+    }
+];
