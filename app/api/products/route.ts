@@ -4,7 +4,7 @@ import { mongooseConnect } from "@/models/mongoose";
 import mongoose from "mongoose";
 import { NextApiRequest, NextApiResponse } from "next";
 import { redirect } from "next/navigation";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 
 export async function POST(req: Request, res: NextApiResponse){
@@ -18,6 +18,11 @@ export async function POST(req: Request, res: NextApiResponse){
 }
 
 
-export async function GET(req: Request){
-    return NextResponse.json({text: "Hello"})
+
+export async function GET(req: NextRequest){
+    const url = new URL(req.url) as any
+    const id = url.search.split('=')[1]
+    await mongooseConnect()
+    const product = await Product.findById(id)
+    return NextResponse.json(product)
 }

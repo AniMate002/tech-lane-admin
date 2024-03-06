@@ -14,6 +14,12 @@ async function getProducts(){
     return products
 }
 
+export const metadata: Metadata = {
+    title: "Products - Tech Lane Admin",
+    description: "Products page of Tech Lane Admin",
+  };
+  
+
 
 const Products = async () => {
     const products: Array<IProduct> = await getProducts()

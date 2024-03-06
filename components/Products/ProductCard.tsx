@@ -1,25 +1,32 @@
 // 'use client'
-import { cabin } from "@/app/layout";
+import { cabin, nunito } from "@/app/layout";
 import { IProduct } from "@/app/products/new/page";
 import ProductDeleteBtn from "./ProductDeleteBtn";
+import Link from "next/link";
 
 interface ProductsCardProps {
     product: IProduct
 }
 
 const ProductsCard:React.FC<ProductsCardProps> = ({ product }) => {
-    
+    const renderedColors = product.colors.map((color: string) => <div className={`w-[25px] h-[25px] rounded-full border-[1px] border-slate-200 ${color}Bg`} key={color} />)
     return (
         <div className={cabin.className + " flex flex-col justify-between p-5 bg-white rounded-xl mt-10"}>
             <div>
-                <div className="overflow-hidden w-[250px] h-[300px] flex items-center rounded-xl justify-center">
-                    <img src={product.image} alt={product.description} className="min-h-[300px] max-h-[300px] min-w-[250px]"/>
-                </div>
+                <Link href={`/products/${product.id}`} className="overflow-hidden w-[260px] h-[300px] flex items-center rounded-xl justify-center">
+                    <img src={product.image} alt={product.description} className="min-h-[300px] min-w-[250px]"/>
+                </Link>
                 <div className="mt-4">
-                    <h4 className="mt-4 font-bold text-xl hover:underline">{product.title}</h4>
-                    <h5 className="text-sm">{(new Date()).getFullYear()}</h5>
+                    <div className="flex mt-4 justify-between items-center">
+                        <Link href={`/products/${product.id}`} className="font-bold hover:underline text-xl">{product.title}</Link>
+                        <h5 className="text-sm">{(new Date()).getFullYear()}</h5>
+                    </div>
                     <p className="mt-2 text-blue-500">{product.category}</p>
-                    <p className="w-[250px] text-slate-500 text-ellipsis mb-4 whitespace-nowrap overflow-hidden">{product.description}</p>
+                    <p className="w-[250px] text-sm text-slate-500 text-ellipsis mb-4 whitespace-nowrap overflow-hidden">{product.description}</p>
+                    <p className={nunito.className + " font-bold"}>${product.price}.00</p>
+                    <div className="flex gap-2 items-center my-4">
+                        { renderedColors }
+                    </div>
                 </div>
             </div>
             <div className="flex items-center gap-2">
