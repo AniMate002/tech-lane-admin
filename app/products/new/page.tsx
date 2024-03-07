@@ -19,6 +19,7 @@ export interface IProduct {
 }
 
 export interface IComment {
+    _id?: string,
     author: string,
     body: string,
     createdAt: string

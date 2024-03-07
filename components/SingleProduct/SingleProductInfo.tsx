@@ -34,7 +34,7 @@ const SingleProductInfo:React.FC<SingleProductInfoProps> = (product) => {
                         <span>Edit</span>
                         <i className="fa-regular fa-pen-to-square text-sm"></i>
                     </Link>
-                    <ProductDeleteBtn id={product?.id || ''} title={product?.title || ''}/>
+                    <ProductDeleteBtn id={product?._id || ''} title={product?.title || ''}/>
                 </div>
             </div>
         </InnerContainer>

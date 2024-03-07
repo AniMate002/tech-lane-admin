@@ -1,6 +1,7 @@
 'use client'
 import { IComment, IProduct } from "@/app/products/new/page";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
 interface SingleProductCommentsFormProps extends IProduct {}
@@ -8,6 +9,7 @@ interface SingleProductCommentsFormProps extends IProduct {}
 const SingleProductCommentsForm:React.FC<SingleProductCommentsFormProps> = (product) => {
     const [author, setAuthor] = useState<string>('')
     const [body, setBody] = useState<string>('')
+    const router = useRouter()
     function sendCommentHandler(e: FormEvent<HTMLFormElement>){
         e.preventDefault()
         const newComment: IComment = {author, body, createdAt: (new Date()).toLocaleString()}
@@ -15,6 +17,7 @@ const SingleProductCommentsForm:React.FC<SingleProductCommentsFormProps> = (prod
 
         // axios.put('/get/products/edit/' + product.id?.toString(), {...product, comments: newComments})
         axios.put(`/api/products/edit/${product._id}`, {...product, comments: newComments})
+            .then(() => window.location.reload())
     }
     return (
         <form onSubmit={e => sendCommentHandler(e)} className="mt-10">

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import ContainerHeader from "../Containers/ContainerHeader";
 import InnerContainer from "../Containers/InnerContainer";
-import { Line } from 'react-chartjs-2'
-import { ChartData, CategoryScale, Chart, LinearScale, Tooltip, PointElement, LineElement, Filler } from "chart.js";
+import { Line, Bar } from 'react-chartjs-2'
+import { ChartData, CategoryScale, Chart, LinearScale, Tooltip, PointElement, LineElement, Filler, BarElement } from "chart.js";
 import { AllMonths } from "../Data";
 
 interface ISale {
@@ -13,7 +13,7 @@ interface ISale {
 
 
 
-Chart.register(CategoryScale, LinearScale, Tooltip, PointElement, LineElement, Filler)
+Chart.register(CategoryScale, LinearScale, Tooltip, PointElement, LineElement, Filler, BarElement)
 
 
 const SingleProductGraph = ({ title }: {title: string}) => {
@@ -45,8 +45,13 @@ const SingleProductGraph = ({ title }: {title: string}) => {
     return (
         <InnerContainer className="w-[50%]">
             <ContainerHeader title={"Sales of " + title} />
+
             {data 
-            ? <Line data={data}/>
+            ? 
+            <div>
+                <Line data={data}/>
+                <Bar data={{...data, backgroundColor: 'black'} as any}/>
+            </div>
             : 'Loading data' 
             }
         </InnerContainer>

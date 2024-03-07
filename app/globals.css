@@ -32,3 +32,24 @@ input:focus{
     background-color: black;
 }
 
+
+  
+
+
+
+
+
+
+  
+  /* Define the scrollbar style */
+  *::-webkit-scrollbar {
+    width: 5px;
+    height: 15px;
+  }
+  
+  /* Define the thumb style */
+  *::-webkit-scrollbar-thumb {
+    background: #3B82F6;
+    border-radius: 5px;
+  }
+  

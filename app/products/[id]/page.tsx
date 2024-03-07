@@ -31,7 +31,7 @@ const SingleProductPage = () => {
                 <SingleProductGraph title={product.title}/>
                 <InnerContainer className="flex-grow">
                     <ContainerHeader title="Comments"/>
-                    <SingleProductCommentsList />
+                    <SingleProductCommentsList {...product}/>
                     <SingleProductCommentsForm {...product}/>
                 </InnerContainer>
             </div>
