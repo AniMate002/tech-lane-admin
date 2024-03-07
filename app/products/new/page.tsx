@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useState, FormEvent, useEffect } from "react";
 
 export interface IProduct {
-    id?: string,
+    _id?: string,
     title: string,
     description: string,
     price: number,
@@ -14,10 +14,15 @@ export interface IProduct {
     image: string,
     category: string,
     colors: Array<string>,
-    memories: Array<number>
+    memories: Array<number>,
+    comments?: Array<IComment>
 }
 
-
+export interface IComment {
+    author: string,
+    body: string,
+    createdAt: string
+}
 
 
 
@@ -34,7 +39,7 @@ const NewProduct = () => {
     const [categories, setCategories] = useState<Array<ICategory> | null>(null)
     function formSubmitHadler (e: FormEvent<HTMLFormElement>){
         e.preventDefault()
-        const newObj: IProduct = {title, description, price, country, image, category, colors, memories}
+        const newObj: IProduct = {title, description, price, country, image, category, colors, memories, comments: []}
         axios.post('/api/products', newObj).then(res => router.replace('/products'))
     }
 

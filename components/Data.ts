@@ -299,3 +299,19 @@ export const allSocialMedia: Array<IMedia> = [
         status: "Posed"
     }
 ];
+
+
+export const AllMonths: Array<string> = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+];

@@ -10,7 +10,14 @@ const ProductSchema = new Schema<IProduct>({
     image: {type: String, required: true},
     category: {type: String},
     colors: [String],
-    memories: [Number]
+    memories: [Number],
+    comments: [
+        {
+            author: { type: String, required: true},
+            body: { type: String, required: true},
+            createdAt: {type: String, required: true}
+        }
+    ]
 })
 
 
