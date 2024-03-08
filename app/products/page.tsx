@@ -7,12 +7,13 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { IProduct } from "./new/page";
+import ProductsPage from "@/components/Products/ProductsPage";
 
-async function getProducts(){
-    mongooseConnect()
-    const products = await Product.find()
-    return products
-}
+// async function getProducts(){
+//     mongooseConnect()
+//     const products = await Product.find()
+//     return products
+// }
 
 export const metadata: Metadata = {
     title: "Products - Tech Lane Admin",
@@ -22,16 +23,10 @@ export const metadata: Metadata = {
 
 
 const Products = async () => {
-    const products: Array<IProduct> = await getProducts()
+    // const products: Array<IProduct> = await getProducts()
     // console.log(products)
     return (
-        <div>
-            <Link href={'/products/new'} className="text-white rounded-md bg-blue-500 px-8 py-4 inline-flex items-center gap-2 hover:bg-blue-400 transition-all duration-200">
-                <span>Add new product</span>
-                <i className="fa-regular fa-square-plus"></i>
-            </Link>
-            <ProductsList products={products}/>
-        </div>
+        <ProductsPage />
     );
 }
  

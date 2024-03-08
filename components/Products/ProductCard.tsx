@@ -13,12 +13,12 @@ const ProductsCard:React.FC<ProductsCardProps> = ({ product }) => {
     return (
         <div className={cabin.className + " flex flex-col justify-between p-5 bg-white rounded-xl mt-10"}>
             <div>
-                <Link href={`/products/${product.id}`} className="overflow-hidden w-[260px] h-[300px] flex items-center rounded-xl justify-center">
+                <Link href={`/products/${product._id}`} className="overflow-hidden w-[260px] h-[300px] flex items-center rounded-xl justify-center">
                     <img src={product.image} alt={product.description} className="min-h-[300px] min-w-[250px]"/>
                 </Link>
                 <div className="mt-4">
                     <div className="flex mt-4 justify-between items-center">
-                        <Link href={`/products/${product.id}`} className="font-bold hover:underline text-xl">{product.title}</Link>
+                        <Link href={`/products/${product._id}`} className="font-bold hover:underline text-xl">{product.title}</Link>
                         <h5 className="text-sm">{(new Date()).getFullYear()}</h5>
                     </div>
                     <p className="mt-2 text-blue-500">{product.category}</p>
@@ -30,11 +30,11 @@ const ProductsCard:React.FC<ProductsCardProps> = ({ product }) => {
                 </div>
             </div>
             <div className="flex items-center gap-2">
-                <a className="w-full py-2 justify-center  bg-blue-500 text-white rounded-lg hover:bg-slate-200 hover:text-black transition-all duration-200 inline-flex items-center gap-2" href={`/products/edit/${product.id}`}>
+                <a className="w-full py-2 justify-center  bg-blue-500 text-white rounded-lg hover:bg-slate-200 hover:text-black transition-all duration-200 inline-flex items-center gap-2" href={`/products/edit/${product._id}`}>
                     <span>Edit</span>
                     <i className="fa-regular fa-pen-to-square text-sm"></i>
                 </a>
-                <ProductDeleteBtn id={product.id || ''} title={product.title}/>
+                <ProductDeleteBtn id={product._id || ''} title={product.title}/>
             </div>
         </div>
     );

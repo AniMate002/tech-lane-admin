@@ -2,6 +2,7 @@
 import { IComment, IProduct } from "@/app/products/new/page";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { comment } from "postcss";
 import { FormEvent, useState } from "react";
 
 interface SingleProductCommentsFormProps extends IProduct {}
@@ -12,12 +13,13 @@ const SingleProductCommentsForm:React.FC<SingleProductCommentsFormProps> = (prod
     const router = useRouter()
     function sendCommentHandler(e: FormEvent<HTMLFormElement>){
         e.preventDefault()
-        const newComment: IComment = {author, body, createdAt: (new Date()).toLocaleString()}
-        const newComments: Array<IComment> = product.comments ? [...product.comments, newComment] : [newComment]
-
-        // axios.put('/get/products/edit/' + product.id?.toString(), {...product, comments: newComments})
-        axios.put(`/api/products/edit/${product._id}`, {...product, comments: newComments})
-            .then(() => window.location.reload())
+        if(author && body){
+            const newComment: IComment = {author, body, createdAt: (new Date()).toLocaleString()}
+            const newComments: Array<IComment> = product.comments ? [...product.comments, newComment] : [newComment]
+    
+            axios.put(`/api/products/edit/${product._id}`, {...product, comments: newComments})
+                .then(() => window.location.reload())
+        }
     }
     return (
         <form onSubmit={e => sendCommentHandler(e)} className="mt-10">

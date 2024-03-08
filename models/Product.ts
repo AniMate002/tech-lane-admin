@@ -20,5 +20,6 @@ const ProductSchema = new Schema<IProduct>({
     ]
 })
 
+ProductSchema.index({ title: 'text', description: 'text'});
 
 export const Product = models.Product || model('Product', ProductSchema)

@@ -13,7 +13,6 @@ export async function POST(req: Request, res: NextApiResponse){
 
     await mongooseConnect()
     const productDoc = await Product.create(data)
-    console.log(productDoc, method)
     return NextResponse.json(data)
 }
 
@@ -21,8 +20,26 @@ export async function POST(req: Request, res: NextApiResponse){
 
 export async function GET(req: NextRequest){
     const url = new URL(req.url) as any
-    const id = url.search.split('=')[1]
-    await mongooseConnect()
-    const product = await Product.findById(id)
-    return NextResponse.json(product)
+    if(url.search){
+        await mongooseConnect()
+        if(url.search.includes('id')){
+            const id = req.nextUrl.searchParams.get('id')
+            const product = await Product.findById(id)
+            return NextResponse.json(product)
+        }else if(url.search.includes('title')){
+            const title = url.searchParams.get('title');
+            let products: Array<IProduct> = [];
+            if (title) {
+                const results = await Product.find({
+                    $text: { $search: title, $caseSensitive: false }
+                }).exec();
+                products = results;
+            }
+            return NextResponse.json({ products: products });
+        }
+    }else{
+        await mongooseConnect()
+        const products = await Product.find()
+        return NextResponse.json(products)
+    }
 }
