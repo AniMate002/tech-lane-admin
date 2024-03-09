@@ -7,6 +7,8 @@ import { IProduct } from "@/app/products/new/page";
 import axios from "axios";
 import ProductsSearchForm from "./ProductsSearchForm";
 import { useSearchParams } from "next/navigation";
+import NotFoundProducts from "./NotFoundProducts";
+import DisplayQuery from "./DisplayQuery";
 
 
 const ProductsPage = () => {
@@ -16,6 +18,7 @@ const ProductsPage = () => {
 
     useEffect(() => {
         const title = searchParams.get('title')
+        setSortedProducts([])
         if(title){
             axios.get('/api/products?title=' + title)
                 .then(res => {
@@ -38,7 +41,17 @@ const ProductsPage = () => {
                 <i className="fa-regular fa-square-plus"></i>
             </Link>
             <ProductsSearchForm setSortedProducts={setSortedProducts} products={products}/>
-            <ProductsList products={sortedProducts.length === 0 ? products : sortedProducts}/>
+            { searchParams.get('title') ? 
+                <DisplayQuery title={searchParams.get('title')} length={products.length}/>
+                :
+                ""
+            }
+            {
+                products.length === 0 ?
+                <NotFoundProducts title={searchParams.get('title')}/>
+                :
+                <ProductsList products={sortedProducts.length === 0 ? products : sortedProducts}/>
+            }
         </div>
     );
 }

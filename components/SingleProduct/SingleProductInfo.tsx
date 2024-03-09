@@ -1,5 +1,5 @@
 'use client'
-import { cabin, inter } from "@/app/layout"
+import { cabin, inter } from "@/app/products/layout"
 import InnerContainer from "../Containers/InnerContainer"
 import Link from "next/link"
 import ProductDeleteBtn from "../Products/ProductDeleteBtn"

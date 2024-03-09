@@ -1,5 +1,5 @@
 // 'use client'
-import { cabin, nunito } from "@/app/layout";
+import { cabin, nunito } from "@/app/products/layout";
 import { IProduct } from "@/app/products/new/page";
 import ProductDeleteBtn from "./ProductDeleteBtn";
 import Link from "next/link";
@@ -11,7 +11,7 @@ interface ProductsCardProps {
 const ProductsCard:React.FC<ProductsCardProps> = ({ product }) => {
     const renderedColors = product.colors.map((color: string) => <div className={`w-[25px] h-[25px] rounded-full border-[1px] border-slate-200 ${color}Bg`} key={color} />)
     return (
-        <div className={cabin.className + " flex flex-col justify-between p-5 bg-white rounded-xl mt-10"}>
+        <div className={cabin.className + " flex flex-col justify-between p-5 bg-white rounded-xl mb-10"}>
             <div>
                 <Link href={`/products/${product._id}`} className="overflow-hidden w-[260px] h-[300px] flex items-center rounded-xl justify-center">
                     <img src={product.image} alt={product.description} className="min-h-[300px] min-w-[250px]"/>

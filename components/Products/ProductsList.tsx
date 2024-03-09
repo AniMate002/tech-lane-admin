@@ -13,7 +13,7 @@ const ProductsList:React.FC<ProductsListProps> = ({ products }) => {
     })
     return (
         <div>
-            <div className="flex justify-between flex-wrap">
+            <div className="flex justify-between flex-wrap mt-4">
                 { renderedProducts }
             </div>
         </div>

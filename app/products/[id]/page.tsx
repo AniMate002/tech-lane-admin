@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { IProduct } from "../new/page";
 import InnerContainer from "@/components/Containers/InnerContainer";
-import { cabin, inter } from "@/app/layout";
+import { cabin, inter } from "@/app/products/layout";
 import Link from "next/link";
 import ProductDeleteBtn from "@/components/Products/ProductDeleteBtn";
 import SingleProductInfo from "@/components/SingleProduct/SingleProductInfo";

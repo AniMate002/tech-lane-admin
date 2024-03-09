@@ -1,4 +1,4 @@
-import { nunito } from "@/app/layout";
+import { nunito } from "@/app/products/layout";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 export interface InnerContainerProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>{
