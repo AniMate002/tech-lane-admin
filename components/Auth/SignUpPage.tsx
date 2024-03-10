@@ -25,7 +25,7 @@ const SignUpPage = () => {
                         confirmButtonText: 'Cool'
                     }).then(data => {
                         if(data.isConfirmed){
-                            router.replace('/')
+                            router.replace('/login')
                         }
                     })
                 })
@@ -43,7 +43,11 @@ const SignUpPage = () => {
         }
     }
     return (
-        <div className=" w-[500px] text-center bg-white p-16 rounded-2xl">
+        <div className=" w-[500px] text-center bg-white p-16 rounded-2xl relative">
+            <Link href={'/'} className="absolute left-6 top-6 text-blue-500">
+                <i className="fa-solid fa-angle-left"></i>
+                <span>Go back</span>
+            </Link>
             <h1 className={nunito.className + " text-6xl font-bold text-blue-500"}>Sign Up</h1>
             <p className="text-slate-400 mt-4 text-sm ">Secure Your Communications with TechLane</p>
             <form onSubmit={e => signUpClickHandler(e)} className="mt-10">

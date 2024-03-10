@@ -1,14 +1,12 @@
 import { User } from "@/models/User"
 import { mongooseConnect } from "@/models/mongoose"
-import NextAuth from "next-auth"
+import NextAuth, { AuthOptions, NextAuthOptions } from "next-auth"
 import Credentials from "next-auth/providers/credentials"
-import GithubProvider from "next-auth/providers/github"
 import bcrypt from "bcryptjs"
 
 
 
-export const authOptions: any = {
-  // Configure one or more authentication providers
+export const authOptions: NextAuthOptions = {
   providers: [
     Credentials({
         credentials: {
@@ -30,14 +28,15 @@ export const authOptions: any = {
             }catch(e: any){
                 throw new Error(e)
             }
-            return null
+            // return null
         },
     })
-    // GithubProvider({
-    //   clientId: process.env.GITHUB_ID,
-    //   clientSecret: process.env.GITHUB_SECRET,
-    // }),
-    // ...add more providers here
   ],
+  pages: {
+    signIn: '/login'
+  }
 }
-export default NextAuth(authOptions)
+// export default NextAuth(authOptions)
+const handler = NextAuth(authOptions)
+
+export { handler as GET, handler as POST}

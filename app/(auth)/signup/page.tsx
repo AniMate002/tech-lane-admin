@@ -8,9 +8,7 @@ export const metadata: Metadata = {
 
 const SignUp = () => {
     return (
-        <div className="bg-gradient-to-br from-cyan-100 to-blue-300 min-h-[100vh] flex items-center justify-center">
-            <SignUpPage />
-        </div>
+        <SignUpPage />
     );
 }
  
