@@ -1,16 +1,18 @@
+'use client'
 import { cabin, inter } from "@/app/layout";
 import { IUser } from "@/models/User";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import AvatarMenu from "./AvatarMenu";
 
 interface HeaderAccountProsp {
     user: { name?: string | null | undefined; email?: string | null | undefined; image?: string | null | undefined; } | undefined
 }
 
 const HeaderAccount:React.FC<HeaderAccountProsp> = ({ user }) => {
-    console.log("HEADER", user)
+    const [showMenu, setShowMenu] = useState<boolean>(false)
     const afterEl = 'after:content-[""] after:absolute after:top-0 after:right-0 after:h-[10px] after:w-[10px] after:block after:bg-white after:rounded-full after:shadow-sm after:shadow-white'
     return (
-        <div className="flex gap-6 items-center">
+        <div onClick={() => setShowMenu(true)} className="flex gap-6 items-center relative">
             <button className={`relative ${afterEl}`}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
@@ -25,6 +27,9 @@ const HeaderAccount:React.FC<HeaderAccountProsp> = ({ user }) => {
             <div className="overflow-hidden h-[40px] w-[40px] rounded-full">
                 <img src="https://images.pexels.com/photos/12493890/pexels-photo-12493890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="avatar" />
             </div>
+            {
+                showMenu ? <AvatarMenu user={user} setShowMenu={setShowMenu}/> : ''
+            }
         </div>
     );
 }
