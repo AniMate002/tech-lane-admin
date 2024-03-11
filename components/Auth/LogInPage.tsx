@@ -6,7 +6,6 @@ import { FormEvent, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Swal from "sweetalert2";
-import { getServerSession } from "next-auth";
 
 
 
@@ -71,7 +70,7 @@ const LogInPage = () => {
                 </button>
             </form>
             <div className="flex items-baseline gap-2 text-sm mt-6 text-slate-400 font-semibold">
-                <span>Don't have an account?</span>
+                <span>Don&apos;t have an account?</span>
                 <Link href={'/signup'} className="font-bold text-blue-500 border-b-2 border-blue-500 hover:text-blue-400 hover:border-blue-400 transition-all">Sign up</Link>
             </div>
         </div>
