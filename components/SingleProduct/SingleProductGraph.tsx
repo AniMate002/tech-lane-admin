@@ -41,7 +41,7 @@ const SingleProductGraph = ({ title }: {title: string}) => {
                 pointHitRadius: 150,
             }]
         })
-    }, [sales])
+    }, [sales, title])
     return (
         <InnerContainer className="w-[50%]">
             <ContainerHeader title={"Sales of " + title} />

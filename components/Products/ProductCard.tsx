@@ -3,6 +3,7 @@ import { IProduct } from "@/app/products/new/page";
 import ProductDeleteBtn from "./ProductDeleteBtn";
 import Link from "next/link";
 import { cabin, nunito } from "@/app/layout";
+import Image from "next/image";
 
 interface ProductsCardProps {
     product: IProduct
@@ -14,7 +15,7 @@ const ProductsCard:React.FC<ProductsCardProps> = ({ product }) => {
         <div className={cabin.className + " flex flex-col justify-between p-5 bg-white rounded-xl mb-10"}>
             <div>
                 <Link href={`/products/${product._id}`} className="overflow-hidden w-[260px] h-[300px] flex items-center rounded-xl justify-center">
-                    <img src={product.image} alt={product.description} className="min-h-[300px] min-w-[250px]"/>
+                    <Image width={250} height={300} quality={100} src={product.image} alt={product.description} className="min-h-[300px] min-w-[250px]"/>
                 </Link>
                 <div className="mt-4">
                     <div className="flex mt-4 justify-between items-center">

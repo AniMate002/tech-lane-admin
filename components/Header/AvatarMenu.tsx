@@ -2,6 +2,7 @@ import { IUser } from "@/models/User";
 import Link from "next/link";
 import LinkBox from "./LinkBox";
 import { signOut } from "next-auth/react";
+import Image from "next/image";
 
 interface AvatarMenuProps {
     user: { name?: string | null | undefined; email?: string | null | undefined; image?: string | null | undefined; } | undefined,
@@ -19,8 +20,8 @@ const AvatarMenu:React.FC<AvatarMenuProps> = ({ user, setShowMenu }) => {
         <div className="absolute z-20 right-0 top-12 text-white rounded-xl w-fit bg-slate-800 px-10 py-4">
             <div className="flex items-center justify-between gap-16">
                 <div className="flex items-center gap-4 flex-shrink-0 w-[60%]">
-                    <div className="overflow-hidden min-h-[40px] min-w-[40px] max-h-[40px] max-w-[40px] rounded-full">
-                        <img src="https://images.pexels.com/photos/12493890/pexels-photo-12493890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="avatar" />
+                    <div className="overflow-hidden min-h-[40px] min-w-[40px] max-h-[40px] max-w-[40px] rounded-xl">
+                        <Image width={40} height={40} src="https://images.pexels.com/photos/12493890/pexels-photo-12493890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="avatar" />
                     </div>
                     <div>
                         <h5 className="font-bold text-md">{user?.name}</h5>

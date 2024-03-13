@@ -3,6 +3,7 @@ import { cabin, inter } from "@/app/layout";
 import { IUser } from "@/models/User";
 import React, { useEffect, useState } from "react";
 import AvatarMenu from "./AvatarMenu";
+import Image from "next/image";
 
 interface HeaderAccountProsp {
     user: { name?: string | null | undefined; email?: string | null | undefined; image?: string | null | undefined; } | undefined
@@ -25,7 +26,7 @@ const HeaderAccount:React.FC<HeaderAccountProsp> = ({ user }) => {
             </button>
             <div className={cabin.className + " text-white font-semibold text-lg"}>{user?.name}</div>
             <div className="overflow-hidden h-[40px] w-[40px] rounded-full">
-                <img src="https://images.pexels.com/photos/12493890/pexels-photo-12493890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="avatar" />
+                <Image height={40} width={40} src="https://images.pexels.com/photos/12493890/pexels-photo-12493890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="avatar" />
             </div>
             {
                 showMenu ? <AvatarMenu user={user} setShowMenu={setShowMenu}/> : ''
