@@ -1,5 +1,8 @@
-import { nunito } from "@/app/layout";
+import { Nunito, Cabin, Inter } from "next/font/google";
 
+const nunito = Nunito({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
+const cabin = Cabin({ subsets: ["latin"] });
 
 const HeaderInput = () => {
     return (

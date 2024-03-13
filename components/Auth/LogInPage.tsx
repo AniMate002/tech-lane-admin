@@ -1,12 +1,15 @@
 'use client'
 import Link from "next/link";
 import AuthInput from "./AuthInput";
-import { nunito } from "@/app/layout";
 import { FormEvent, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Swal from "sweetalert2";
+import { Nunito, Cabin, Inter } from "next/font/google";
 
+const nunito = Nunito({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
+const cabin = Cabin({ subsets: ["latin"] });
 
 
 const LogInPage = () => {

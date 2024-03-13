@@ -1,10 +1,13 @@
 'use client'
-import { cabin, inter } from "@/app/layout";
 import { IUser } from "@/models/User";
 import React, { useEffect, useState } from "react";
 import AvatarMenu from "./AvatarMenu";
 import Image from "next/image";
+import { Nunito, Cabin, Inter } from "next/font/google";
 
+const nunito = Nunito({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
+const cabin = Cabin({ subsets: ["latin"] });
 interface HeaderAccountProsp {
     user: { name?: string | null | undefined; email?: string | null | undefined; image?: string | null | undefined; } | undefined
 }

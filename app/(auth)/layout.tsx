@@ -1,6 +1,9 @@
 import "./../globals.css";
-import { inter } from "../layout";
+import { Nunito, Cabin, Inter } from "next/font/google";
 
+const nunito = Nunito({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
+const cabin = Cabin({ subsets: ["latin"] });
 
 
 

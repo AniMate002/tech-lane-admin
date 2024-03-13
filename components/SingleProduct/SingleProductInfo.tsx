@@ -6,8 +6,12 @@ import React, { useEffect, useState } from "react"
 import { IProduct } from "@/app/products/new/page"
 import { useParams } from "next/navigation"
 import axios from "axios"
-import { cabin, inter } from "@/app/layout"
 import Image from "next/image"
+import { Nunito, Cabin, Inter } from "next/font/google";
+
+const nunito = Nunito({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
+const cabin = Cabin({ subsets: ["latin"] });
 
 interface SingleProductInfoProps extends IProduct {}
 

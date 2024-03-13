@@ -1,10 +1,13 @@
 "use client"
 
-import { nunito } from "@/app/layout";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { Nunito, Cabin, Inter } from "next/font/google";
 
+const nunito = Nunito({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
+const cabin = Cabin({ subsets: ["latin"] });
 
 const OuterContHeader = () => {
     const pathname = usePathname().split('/')

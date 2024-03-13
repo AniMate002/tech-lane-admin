@@ -1,15 +1,11 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
-import Navigation from "@/components/Navigation/Navigation";
-import Header from "@/components/Header/Header";
-import { Nunito, Cabin } from "next/font/google";
-import OuterContainer from "@/components/Containers/OuterContainer";
 import { getServerSession } from "next-auth";
 import SessionProvider from '../utils/SessionProvider'
+import { Nunito, Cabin, Inter } from "next/font/google";
 
-export const nunito = Nunito({ subsets: ["latin"] });
-export const inter = Inter({ subsets: ["latin"] });
-export const cabin = Cabin({ subsets: ["latin"] });
+const nunito = Nunito({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
+const cabin = Cabin({ subsets: ["latin"] });
 
 
 

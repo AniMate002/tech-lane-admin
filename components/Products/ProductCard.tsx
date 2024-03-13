@@ -2,8 +2,12 @@
 import { IProduct } from "@/app/products/new/page";
 import ProductDeleteBtn from "./ProductDeleteBtn";
 import Link from "next/link";
-import { cabin, nunito } from "@/app/layout";
 import Image from "next/image";
+import { Nunito, Cabin, Inter } from "next/font/google";
+
+const nunito = Nunito({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
+const cabin = Cabin({ subsets: ["latin"] });
 
 interface ProductsCardProps {
     product: IProduct

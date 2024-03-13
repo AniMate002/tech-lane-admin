@@ -1,5 +1,9 @@
-import { nunito } from "@/app/layout";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { Nunito, Cabin, Inter } from "next/font/google";
+
+const nunito = Nunito({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
+const cabin = Cabin({ subsets: ["latin"] });
 
 export interface InnerContainerProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>{
     title?: string,
