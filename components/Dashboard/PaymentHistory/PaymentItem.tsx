@@ -1,4 +1,4 @@
-import { cabin } from "@/app/products/layout";
+import { cabin } from "@/app/layout";
 import { IPaymentItem } from "@/components/Data";
 
 interface PaymentItemProps extends IPaymentItem{}

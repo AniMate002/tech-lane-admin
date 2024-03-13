@@ -1,4 +1,4 @@
-import { cabin } from "@/app/products/layout";
+import { cabin } from "@/app/layout";
 import { IMedia } from "@/components/Data";
 
 interface MeidaCardProps extends IMedia {}

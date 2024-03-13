@@ -1,4 +1,4 @@
-import { cabin } from "@/app/products/layout";
+import { cabin } from "@/app/layout";
 import { IComment, IProduct } from "@/app/products/new/page";
 import axios from "axios";
 import { comment } from "postcss";

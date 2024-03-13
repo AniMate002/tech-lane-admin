@@ -1,4 +1,4 @@
-import { nunito } from "@/app/products/layout";
+import { nunito } from "@/app/layout";
 
 
 const HeaderInput = () => {

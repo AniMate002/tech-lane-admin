@@ -1,6 +1,6 @@
 "use client"
 
-import { nunito } from "@/app/products/layout";
+import { nunito } from "@/app/layout";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { DetailedHTMLProps, HTMLAttributes } from "react";

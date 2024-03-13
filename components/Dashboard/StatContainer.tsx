@@ -1,6 +1,6 @@
 'use client'
 
-import { nunito } from "@/app/products/layout";
+import { nunito } from "@/app/layout";
 import InnerContainer from "../Containers/InnerContainer";
 import { IStat } from "./StatList";
 

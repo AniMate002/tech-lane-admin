@@ -1,5 +1,4 @@
 'use client'
-import { cabin, inter } from "@/app/products/layout"
 import InnerContainer from "../Containers/InnerContainer"
 import Link from "next/link"
 import ProductDeleteBtn from "../Products/ProductDeleteBtn"
@@ -7,6 +6,7 @@ import React, { useEffect, useState } from "react"
 import { IProduct } from "@/app/products/new/page"
 import { useParams } from "next/navigation"
 import axios from "axios"
+import { cabin, inter } from "@/app/layout"
 
 interface SingleProductInfoProps extends IProduct {}
 

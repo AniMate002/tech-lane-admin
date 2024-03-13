@@ -1,12 +1,4 @@
-import OuterContainer from "@/components/Containers/OuterContainer";
-import ProductsList from "@/components/Products/ProductsList";
-import { Product } from "@/models/Product";
-import { mongooseConnect } from "@/models/mongoose";
-import axios from "axios";
 import { Metadata } from "next";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { IProduct } from "./new/page";
 import ProductsPage from "@/components/Products/ProductsPage";
 
 // async function getProducts(){

@@ -1,8 +1,8 @@
 // 'use client'
-import { cabin, nunito } from "@/app/products/layout";
 import { IProduct } from "@/app/products/new/page";
 import ProductDeleteBtn from "./ProductDeleteBtn";
 import Link from "next/link";
+import { cabin, nunito } from "@/app/layout";
 
 interface ProductsCardProps {
     product: IProduct
