@@ -1,19 +1,19 @@
 import { User } from "@/models/User"
 import { mongooseConnect } from "@/models/mongoose"
 import NextAuth, { AuthOptions, NextAuthOptions } from "next-auth"
-import Credentials from "next-auth/providers/credentials"
+import CredentialsProvider from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs"
 
 
 
-export const authOptions: NextAuthOptions = {
+export const authOptions:NextAuthOptions = {
   providers: [
-    Credentials({
+    CredentialsProvider({
         credentials: {
             email: {label: 'Email', type: 'email', required: true},
             password: {label: 'Password', type: 'password', required: true}
         },
-        async authorize(credentials) {
+        async authorize(credentials:any) {
             if(!credentials?.email || !credentials?.password) return null
             
             try{
@@ -28,7 +28,6 @@ export const authOptions: NextAuthOptions = {
             }catch(e: any){
                 throw new Error(e)
             }
-            // return null
         },
     })
   ],
