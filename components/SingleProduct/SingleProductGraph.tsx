@@ -22,7 +22,7 @@ const SingleProductGraph = ({ title }: {title: string}) => {
     useEffect(() => {
         const newSales: Array<ISale> = AllMonths.map((month: string, index: number) => ({ id: index, month: month, value: Math.round(Math.random() * 1000)}))
         setSales(newSales)
-    }, [])
+    }, [title])
 
     useEffect(() => {
         setData({

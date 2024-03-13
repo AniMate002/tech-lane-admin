@@ -89,7 +89,7 @@ const ProductEdit = () => {
         
         getCategories().then(cat => setCategories(cat))
         
-    }, [])
+    }, [pathname])
 
     const renderedCategories = categories?.map(cat => {
         return <option key={cat.name} value={cat.name}>{cat.name}</option>

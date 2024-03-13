@@ -27,7 +27,7 @@ const EditCategoryForm:React.FC<EditCategoryFormProps> = ({ categories }) => {
             setParent(categoryToEdit.parent)
         }
 
-    }, [])
+    }, [categories, pathname])
     const renderedCatOptions = categories.map(category => {
         return <option key={category._id} value={category.name}>{category.name}</option>
     })

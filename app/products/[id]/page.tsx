@@ -19,7 +19,7 @@ const SingleProductPage = () => {
     useEffect(() => {
         console.log(route.id)
         axios.get('/api/products?id=' + route.id).then(res => setProduct(res.data))
-    }, [])
+    }, [route.id])
     const renderedColors = product?.colors?.map((color: string) => <div className={`w-[35px] h-[35px] rounded-full border-[1px] border-slate-200 ${color}Bg`} key={color} />)
     if(!product){
         return <h1>Loading...</h1>
