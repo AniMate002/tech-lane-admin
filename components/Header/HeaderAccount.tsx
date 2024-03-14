@@ -1,7 +1,9 @@
+import { IUser } from "@/models/User";
 import Image from "next/image";
+import { use } from "react";
 
 
-const HeaderAccount = () => {
+const HeaderAccount = ({ user }: {user: IUser}) => {
     const afterEl = 'after:content-[""] after:absolute after:top-0 after:right-0 after:h-[10px] after:w-[10px] after:block after:bg-white after:rounded-full after:shadow-sm after:shadow-white'
     return (
         <div className="flex gap-6 items-center">
@@ -15,6 +17,7 @@ const HeaderAccount = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                 </svg>
             </button>
+            <p className="font-bold text-white">{user.email}</p>
             <div className="overflow-hidden h-[40px] w-[40px] rounded-full">
                 <Image height={40} width={40} src="https://images.pexels.com/photos/12493890/pexels-photo-12493890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="avatar" />
             </div>
