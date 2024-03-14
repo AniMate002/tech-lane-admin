@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const LogIn = () => {
     return (
         <div>
-            {/* <LogInPage /> */}
+            <LogInPage />
         </div>
     );
 }
