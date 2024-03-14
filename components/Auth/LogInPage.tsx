@@ -2,7 +2,6 @@
 import Link from "next/link";
 import AuthInput from "./AuthInput";
 import { FormEvent, useState } from "react";
-import { signIn, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Swal from "sweetalert2";
 import { Nunito, Cabin, Inter } from "next/font/google";
@@ -14,42 +13,11 @@ const cabin = Cabin({ subsets: ["latin"] });
 
 const LogInPage = () => {
     const router = useRouter()
-    const session = useSession()
     // console.log(session)
     const [credentials, setCredentials] = useState<{password: string, email: string}>({ password: '', email: ''})
     function logUpClickHandler(e: FormEvent<HTMLFormElement>){
         e.preventDefault()
         // console.log(credentials)
-        signIn('credentials', {...credentials, redirect: false} )
-            .then(res => {
-                if(res?.ok){
-                    router.replace('/')
-                }else if(res?.error){
-                    if(res.status === 401){
-                        Swal.fire({
-                            title: 'Ooops...',
-                            icon: 'error',
-                            text: "Email or password is incorrect! Try again.",
-                            confirmButtonText: 'Ok',
-                        })
-                    }else if(res.status === 500){
-                        Swal.fire({
-                            title: 'Something went wrong...',
-                            icon: 'error',
-                            text: "We've encountered server error! Try again. Status " + res.status,
-                            confirmButtonText: 'Ok',
-                        })
-                    }
-                    else{
-                        Swal.fire({
-                            title: 'Something went wrong...',
-                            icon: 'error',
-                            text: "We've encountered error! Try again. Status: " + res.status,
-                            confirmButtonText: 'Ok',
-                        })
-                    }
-                }
-            })
     }
     return (
         <div className=" w-[500px] text-center bg-white p-16 rounded-2xl relative">
@@ -65,10 +33,11 @@ const LogInPage = () => {
                 <button type="submit" className="text-white bg-blue-600 px-10 py-3 rounded-full mt-10 flex items-center gap-4">
                     <span>Sign Up</span>
                     <div className="flex w-[50px] h-[30px] bg-blue-500 rounded-full items-center justify-center">
-                        {session.status === 'loading'
+                        {/* {session.status === 'loading'
                         ? <i className="fa-solid fa-circle-notch fa-spin"></i>
                         : <i className="fa-solid fa-arrow-right-long"></i>
-                        }
+                        } */}
+                        <i className="fa-solid fa-circle-notch fa-spin"></i>
                     </div>
                 </button>
             </form>

@@ -1,7 +1,6 @@
 import { IUser } from "@/models/User";
 import Link from "next/link";
 import LinkBox from "./LinkBox";
-import { signOut } from "next-auth/react";
 import Image from "next/image";
 
 interface AvatarMenuProps {
@@ -28,7 +27,7 @@ const AvatarMenu:React.FC<AvatarMenuProps> = ({ user, setShowMenu }) => {
                         <p className="text-sm font-bold text-slate-300">{user?.email}</p>
                     </div>
                 </div>
-                <button onClick={() => signOut()} className="px-4 py-2 font-bold text-sm bg-blue-500 rounded-full flex-shrink-0 transition-all duration-200 hover:bg-blue-400">Signout</button>
+                <button className="px-4 py-2 font-bold text-sm bg-blue-500 rounded-full flex-shrink-0 transition-all duration-200 hover:bg-blue-400">Signout</button>
             </div>
             <div className="bg-slate-700 rounded-lg mt-4 px-4 py-4 flex flex-col gap-4">
                 <p className={subTitleClass}>Activity</p>

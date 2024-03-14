@@ -23,7 +23,6 @@ const OuterContHeader = () => {
             </div>
         )
     })
-    console.log("test", pathname)
     return (
         <div className={nunito.className + " mb-10"}>
             <div className="flex justify-between items-center">
