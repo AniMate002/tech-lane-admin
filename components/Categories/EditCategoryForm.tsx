@@ -1,10 +1,10 @@
-'use client'
-
+"use client"
 import { FormEvent, useEffect, useState } from "react"
 import BlueBtn from "../Reusable/BlueBtn"
 import { ICategory } from "@/models/Category"
 import { usePathname, useRouter } from "next/navigation"
 import axios from "axios"
+import ErrorComponent from "../Reusable/ErrorComponent"
 
 interface EditCategoryFormProps {
     categories: Array<ICategory>
@@ -15,6 +15,7 @@ export const getIdClient = (pathname: string) => pathname.split('/')[pathname.sp
 const EditCategoryForm:React.FC<EditCategoryFormProps> = ({ categories }) => {
     const pathname = usePathname()
     const router = useRouter()
+    const [error, setError] = useState<string | null>(null)
     const [name, setName] = useState<string>('')
     const [svgCode, setSvg] = useState<string>('')
     const [parent, setParent] = useState<string>('')
@@ -33,8 +34,16 @@ const EditCategoryForm:React.FC<EditCategoryFormProps> = ({ categories }) => {
     })
     async function formHandler(e: FormEvent<HTMLFormElement>){
         e.preventDefault()
-        const response = await axios.put(`/api/categories/edit/${getIdClient(pathname)}`, {name, svgCode, parent})
-        await router.replace('/categories')
+        try{
+            const response = await axios.put(`/api/categories/edit/${getIdClient(pathname)}`, {name, svgCode, parent})
+            await router.replace('/categories')
+        }catch(e){
+            const errorMessage = e instanceof Error ? e.message : "Unknown Error"
+            setError(errorMessage)
+        }
+    }
+    if(error){
+        return <ErrorComponent errorMessage={error}/>
     }
     return (
         <form onSubmit={e => formHandler(e)}>

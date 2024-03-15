@@ -1,13 +1,11 @@
-import "./../globals.css";
-import { Nunito, Cabin, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 
-const nunito = Nunito({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
-const cabin = Cabin({ subsets: ["latin"] });
 
 
 
-export default function RootLayout({
+
+export default function AuthLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

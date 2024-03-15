@@ -1,21 +1,15 @@
-'use client'
-import CategoriesForm from "@/components/Categories/CategoriesForm";
-import CategoriesList from "@/components/Categories/CategoriesList";
+"use client"
+
+import EditCategoryForm from "@/components/Categories/EditCategoryForm";
 import InnerContainer from "@/components/Containers/InnerContainer";
 import ErrorComponent from "@/components/Reusable/ErrorComponent";
 import Loading from "@/components/Reusable/Loading";
-import { ICategory } from "@/models/Category";
+import { Category, ICategory } from "@/models/Category";
+import { mongooseConnect } from "@/models/mongoose";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-// async function getCategories(){
-//     await mongooseConnect()
-//     const categories = await Category.find()
-//     return categories
-// }
-
-const Categories = () => {
-    // const categories: Array<ICategory> = await getCategories() 
+const EditCategoryPage = () => {
     const [categories, setCategories] = useState<Array<ICategory>>()
     const [error, setError] = useState<string | null>(null)
 
@@ -37,17 +31,14 @@ const Categories = () => {
 
     if(!categories){
         return <Loading title="Loading categories"/>
-    }    
+    } 
     return (
         <div>
             <InnerContainer>
-                <CategoriesForm categories={categories}/>
-            </InnerContainer>
-            <InnerContainer className="mt-20">
-                <CategoriesList categories={categories}/>
+                <EditCategoryForm categories={categories}/>
             </InnerContainer>
         </div>
     );
 }
  
-export default Categories;
+export default EditCategoryPage;

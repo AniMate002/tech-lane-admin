@@ -6,11 +6,10 @@ import { IUser } from "@/models/User";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
-import { Nunito, Cabin, Inter } from "next/font/google";
+import { Nunito} from "next/font/google";
 
 const nunito = Nunito({ subsets: ["latin"] });
-const inter = Inter({ subsets: ["latin"] });
-const cabin = Cabin({ subsets: ["latin"] });
+
 
 const SignUpPage = () => {
     const [user, setUser] = useState<IUser>({name: '', password: '', email: '', createdAt: ''})

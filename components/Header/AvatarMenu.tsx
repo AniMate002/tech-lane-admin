@@ -20,7 +20,7 @@ const AvatarMenu:React.FC<AvatarMenuProps> = ({ user, setShowMenu }) => {
         <div className="absolute z-20 right-0 top-12 text-white rounded-xl w-fit bg-slate-800 px-10 py-4">
             <div className="flex items-center justify-between gap-16">
                 <div className="flex items-center gap-4 flex-shrink-0 w-[60%]">
-                    <div className="overflow-hidden min-h-[40px] min-w-[40px] max-h-[40px] max-w-[40px] rounded-xl">
+                    <div className="overflow-hidden min-h-[40px] min-w-[40px] max-h-[40px] max-w-[40px] rounded-full">
                         <Image width={40} height={40} src="https://images.pexels.com/photos/12493890/pexels-photo-12493890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="avatar" />
                     </div>
                     <div>
@@ -40,7 +40,9 @@ const AvatarMenu:React.FC<AvatarMenuProps> = ({ user, setShowMenu }) => {
                 <LinkBox href="/" title="Message Inbox" svg="fa-solid fa-envelope-open-text"/>
                 <LinkBox href="/" title="Support Tickets" svg="fa-solid fa-ticket"/>
             </div>
-            <button onClick={e => hideMenuHandler(e)} className="fa-solid fa-caret-down rotate-[45deg] text-slate-500 origin-center absolute bottom-4 left-4 hover:text-white transition-all duration-200 hover:scale-[1.5]"></button>
+            <button onClick={e => hideMenuHandler(e)} className="text-slate-500 origin-center bg-slate-700 px-4 py-2 rounded-lg mx-auto block mt-2 w-full hover:bg-slate-600  hover:text-white transition-all duration-200">
+                <span>Close</span>
+            </button>
         </div>
     );
 }

@@ -56,14 +56,6 @@ const ProductsSearchForm:React.FC<ProductsSearchFormProps> = ({ setSortedProduct
         }
         setSortedProducts(sortedProducts);
     }
-
-    function clearSearchClickHandler(){
-        setTitle('')
-        setSortByPrice('sort')
-        setSortByTitle('sort')
-        setSortedProducts([])
-        router.push('/products')
-    }
     return (
         <InnerContainer className="mt-4">
             <ContainerHeader title="Search for product"/>
@@ -73,24 +65,18 @@ const ProductsSearchForm:React.FC<ProductsSearchFormProps> = ({ setSortedProduct
                         <span className="text-blue-300 inline-flex justify-center items-center py-2 w-[100px] bg-slate-100 rounded-lg font-bold">Search:</span>
                         <input value={title} onChange={e => setTitle(e.target.value)} type="text" placeholder="I'm searching for..." className="rounded-lg border-2 px-4 py-2 w-[400px]"/>
                     </label>
-                    <div className="flex items-center gap-2">
-                        <button type="submit" className="flex items-center gap-2 text-white bg-blue-500 px-4 py-2 rounded-lg mt-4 hover:bg-blue-400 transition-all duration-200">
-                            Search
-                            <i className="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                        <button onClick={clearSearchClickHandler} type="button" className="flex items-center gap-2 text-blue-500 bg-slate-200 px-4 py-2 rounded-lg mt-4 hover:bg-slate-300 hover:text-white transition-all duration-200">
-                            Clear
-                            <i className="fa-solid fa-broom"></i>
-                        </button>
-                    </div>
+                    <button type="submit" className="flex items-center gap-2 text-white bg-blue-500 px-4 py-2 rounded-lg mt-4 hover:bg-blue-400 transition-all duration-200">
+                        Search
+                        <i className="fa-solid fa-magnifying-glass"></i>
+                    </button>
                 </form>
                 <div className="flex items-center gap-4">
                     <span className="text-blue-300 inline-flex justify-center items-center py-2 w-[100px] bg-slate-100 rounded-lg font-bold">Sort by:</span>
-                    <button onClick={sortByPriceHandler} className={` border-b-2  px-4 py-1 flex items-center gap-2 ${sortByPrice === 'sort' ? 'text-slate-400 border-slate-400' : 'text-blue-500 border-blue-400'}`}>
+                    <button onClick={sortByPriceHandler} className=" text-slate-400 border-b-2 border-slate-400 px-4 py-1 flex items-center gap-2">
                         <span>Price</span>
                         <i className={`fa-solid fa-${sortByPrice}`}></i>
                     </button>
-                    <button onClick={sortByTextHandler} className={`border-b-2 px-4 py-1 flex items-center gap-2 ${sortByTitle === 'sort' ? 'text-slate-400 border-slate-400' : 'text-blue-500 border-blue-400'}`}>
+                    <button onClick={sortByTextHandler} className=" text-slate-400 border-b-2 border-slate-400 px-4 py-1 flex items-center gap-2">
                         <span>A - Z</span>
                         <i className={`fa-solid fa-${sortByTitle}`}></i>
                     </button>

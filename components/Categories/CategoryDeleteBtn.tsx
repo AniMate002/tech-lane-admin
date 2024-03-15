@@ -1,5 +1,4 @@
-import { Category, ICategory } from "@/models/Category";
-import { mongooseConnect } from "@/models/mongoose";
+import { ICategory } from "@/models/Category";
 import axios from "axios";
 import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 import Swal from "sweetalert2";
@@ -20,7 +19,17 @@ const CategoryDeleteBtn:React.FC<CategoryDeleteBtnProps> = ({ category, classNam
             confirmButtonColor: '#e23237'
         }).then(data => {
             if(data.isConfirmed){
-                axios.delete(`/api/categories/delete/${category._id}`).then(() => window.location.reload())
+                axios
+                    .delete(`/api/categories/delete/${category._id}`).then(() => window.location.reload())
+                    .catch(e => {
+                        const errorMessage = e instanceof Error ? e.message : "Unknown Error"
+                        Swal.fire({
+                            title: "Ooops...",
+                            text: "Category was not deleted due to unexprected Error: " + errorMessage,
+                            icon: "error",
+                            confirmButtonColor: "#e23237"
+                        })
+                    })
             }
         })
     }

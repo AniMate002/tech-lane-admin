@@ -1,11 +1,9 @@
-import { Metadata } from "next";
-import ProductsPage from "@/components/Products/ProductsPage";
 
-// async function getProducts(){
-//     mongooseConnect()
-//     const products = await Product.find()
-//     return products
-// }
+import { Metadata } from "next";
+
+import ProductsPage from "@/components/Products/ProductsPage";
+import { Suspense } from "react";
+
 
 export const metadata: Metadata = {
     title: "Products - Tech Lane Admin",
@@ -15,10 +13,10 @@ export const metadata: Metadata = {
 
 
 const Products = async () => {
-    // const products: Array<IProduct> = await getProducts()
-    // console.log(products)
     return (
-        <ProductsPage />
+        <Suspense>
+            <ProductsPage />
+        </Suspense>
     );
 }
  

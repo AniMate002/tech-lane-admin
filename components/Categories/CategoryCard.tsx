@@ -1,6 +1,5 @@
 'use client'
-import { Category, ICategory } from "@/models/Category";
-import { mongooseConnect } from "@/models/mongoose";
+import { ICategory } from "@/models/Category";
 import axios from "axios";
 import CategoryDeleteBtn from "./CategoryDeleteBtn";
 

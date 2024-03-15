@@ -6,8 +6,8 @@ import React, { useEffect, useState } from "react"
 import { IProduct } from "@/app/products/new/page"
 import { useParams } from "next/navigation"
 import axios from "axios"
-import Image from "next/image"
 import { Nunito, Cabin, Inter } from "next/font/google";
+import Image from "next/image"
 
 const nunito = Nunito({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
@@ -21,7 +21,7 @@ const SingleProductInfo:React.FC<SingleProductInfoProps> = (product) => {
     return (
         <InnerContainer className="flex items-center justify-between w-full">
             <div className="w-[500px] h-[500px] overflow-hidden flex items-center justify-center rounded-xl flex-shrink-0">
-                <Image width={500} quality={100} height={500} src={product?.image} alt={product?.description} />
+                <Image width={500} height={500} src={product?.image} alt={product?.description} />
             </div>
             <div className="text-center flex-grow pt-6">
                 <h3 className={cabin.className + " font-bold text-4xl text-slate-700"}>{product?.title}</h3>

@@ -2,6 +2,7 @@ import { IComment, IProduct } from "@/app/products/new/page";
 import axios from "axios";
 import { comment } from "postcss";
 import Swal from "sweetalert2";
+
 import { Nunito, Cabin, Inter } from "next/font/google";
 
 const nunito = Nunito({ subsets: ["latin"] });
