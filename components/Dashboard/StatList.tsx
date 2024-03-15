@@ -16,7 +16,10 @@ const StatList = () => {
         return <StatContainer key={i} {...stat}/>
     })
     return (
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid gap-6
+        grid-cols-1
+        md:grid-cols-2
+        ">
             { renderedStatContainers }
         </div>
     );

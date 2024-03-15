@@ -59,18 +59,24 @@ const ProductsSearchForm:React.FC<ProductsSearchFormProps> = ({ setSortedProduct
     return (
         <InnerContainer className="mt-4">
             <ContainerHeader title="Search for product"/>
-            <div className="flex items-baseline gap-10">
+            <div className="flex items-baseline gap-10
+            flex-col
+            md:flex-row
+            ">
                 <form onSubmit={e => searchFormSubmitHandler(e)}>
-                    <label className="flex items-center gap-4 mt-2">
+                    <label className="flex gap-4 mt-2
+                    flex-col
+                    md:flex-row md:items-center
+                    ">
                         <span className="text-blue-300 inline-flex justify-center items-center py-2 w-[100px] bg-slate-100 rounded-lg font-bold">Search:</span>
-                        <input value={title} onChange={e => setTitle(e.target.value)} type="text" placeholder="I'm searching for..." className="rounded-lg border-2 px-4 py-2 w-[400px]"/>
+                        <input value={title} onChange={e => setTitle(e.target.value)} type="text" placeholder="I'm searching for..." className="rounded-lg border-2 px-4 py-2 lg:w-[200px] xl:w-[400px] w-[250px]"/>
                     </label>
                     <button type="submit" className="flex items-center gap-2 text-white bg-blue-500 px-4 py-2 rounded-lg mt-4 hover:bg-blue-400 transition-all duration-200">
                         Search
                         <i className="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </form>
-                <div className="flex items-center gap-4">
+                <div className="flex gap-4 items-center flex-wrap">
                     <span className="text-blue-300 inline-flex justify-center items-center py-2 w-[100px] bg-slate-100 rounded-lg font-bold">Sort by:</span>
                     <button onClick={sortByPriceHandler} className=" text-slate-400 border-b-2 border-slate-400 px-4 py-1 flex items-center gap-2">
                         <span>Price</span>

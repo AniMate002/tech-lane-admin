@@ -17,9 +17,12 @@ const AvatarMenu:React.FC<AvatarMenuProps> = ({ user, setShowMenu }) => {
         setShowMenu(false)
     }
     return (
-        <div className="absolute z-20 right-0 top-12 text-white rounded-xl w-fit bg-slate-800 px-10 py-4">
-            <div className="flex items-center justify-between gap-16">
-                <div className="flex items-center gap-4 flex-shrink-0 w-[60%]">
+        <div className="absolute top-12 text-white rounded-xl  bg-slate-800  py-4 z-10
+        w-[100vw] right-[-40px] px-2
+        sm:w-[400px] sm:right-0 sm:px-10
+        ">
+            <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4 flex-shrink-0">
                     <div className="overflow-hidden min-h-[40px] min-w-[40px] max-h-[40px] max-w-[40px] rounded-full">
                         <Image width={40} height={40} src="https://images.pexels.com/photos/12493890/pexels-photo-12493890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="avatar" />
                     </div>

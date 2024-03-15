@@ -16,10 +16,10 @@ interface ProductsCardProps {
 const ProductsCard:React.FC<ProductsCardProps> = ({ product }) => {
     const renderedColors = product.colors.map((color: string) => <div className={`w-[25px] h-[25px] rounded-full border-[1px] border-slate-200 ${color}Bg`} key={color} />)
     return (
-        <div className={cabin.className + " flex flex-col justify-between p-5 bg-white rounded-xl mt-10"}>
+        <div className={cabin.className + " flex flex-col justify-between p-5 bg-white rounded-xl mt-10 sm:w-auto w-full"}>
             <div>
-                <Link href={`/products/${product._id}`} className="overflow-hidden w-[260px] h-[300px] flex items-center rounded-xl justify-center">
-                    <Image width={250} height={300} src={product.image} alt={product.description} className="min-h-[300px] min-w-[250px]"/>
+                <Link href={`/products/${product._id}`} className="overflow-hidden h-[300px] w-full flex items-center rounded-xl justify-center mx-auto">
+                    <Image width={250} height={300} src={product.image} alt={product.description} className="min-h-[300px] min-w-full"/>
                 </Link>
                 <div className="mt-4">
                     <div className="flex mt-4 justify-between items-center">

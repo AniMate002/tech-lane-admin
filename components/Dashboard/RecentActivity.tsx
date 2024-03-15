@@ -19,7 +19,10 @@ const RecentActivity = () => {
         }]
     }
     return (
-        <InnerContainer className="flex-grow">
+        <InnerContainer className="
+        sm:w-[50%]
+        lg:flex-grow
+        ">
             <ContainerHeader title="Recent Activity"/>
             <Doughnut data={data} options={{plugins:{tooltip:{enabled: true}, legend: {display: true, position: 'top'}}}}/>
         </InnerContainer>

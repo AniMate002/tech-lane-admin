@@ -26,7 +26,10 @@ const VisitorsByBrowser = () => {
         }]
     }
     return (
-        <InnerContainer className="w-[40%]">
+        <InnerContainer className="
+        w-full
+        lg:w-[40%]
+        ">
             <ContainerHeader title="Visitors by Browser"/>
             <Radar data={data}/> 
         </InnerContainer>

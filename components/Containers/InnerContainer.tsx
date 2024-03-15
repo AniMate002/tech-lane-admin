@@ -13,7 +13,7 @@ export interface InnerContainerProps extends DetailedHTMLProps<HTMLAttributes<HT
 
 const InnerContainer:React.FC<InnerContainerProps> = ({title, children, className, ...props}) => {
     return (
-        <div {...props} className={nunito.className + " px-10 py-5 bg-white rounded-xl " + className}>
+        <div {...props} className={nunito.className + "  py-5 bg-white rounded-xl lg:px-10 px-4 " + className}>
             {title ? 
             <div>
                 <h4 className="text-slate-500 text-2xl mb-4">{title}</h4>

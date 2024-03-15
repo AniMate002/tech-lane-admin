@@ -23,7 +23,7 @@ const HeaderAccount = ({ user }: {user: IUser}) => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                 </svg>
             </button>
-            <div className={cabin.className + " text-white font-semibold text-lg cursor-pointer"}>{user?.name}</div>
+            <div className={cabin.className + " text-white font-semibold text-lg cursor-pointer hidden lg:block"}>{user?.name}</div>
             <div className="overflow-hidden h-[40px] w-[40px] rounded-full cursor-pointer">
                 <Image height={40} width={40} src="https://images.pexels.com/photos/12493890/pexels-photo-12493890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="avatar" />
             </div>

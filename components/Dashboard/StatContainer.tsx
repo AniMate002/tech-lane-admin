@@ -14,7 +14,7 @@ const StatContainer:React.FC<StatContainerProps> = ({title, subtitle, body, colo
     // alert(color)
     return (
         <InnerContainer>
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between lg:items-center items-start ">
                 <div>
                     <p className={` text-slate-400 font-bold`}>{title}</p>
                     <p className={nunito.className + " text-4xl font-bold text-slate-600 mt-4 tracking-tighter"}>{body}</p>

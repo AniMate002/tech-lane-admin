@@ -16,17 +16,30 @@ export default function Home() {
   return (
       <div>
         <StatList />
-        <div className="flex justify-between gap-6 mt-10 items-stretch">
-          <div className="w-[70%] flex-shrink-0">
+        <div className="flex justify-between gap-6 mt-10 items-stretch
+        flex-wrap
+        xl:flex-nowrap
+        ">
+          <div className="flex-shrink-0
+          w-full
+          xl:w-[50%]
+          2xl:w-[70%]
+          ">
             <GraphRevenue />
           </div>
           <CurrencyConverter />
         </div>
-        <div className="flex justify-between gap-6 mt-10 items-stretch">
+        <div className="flex justify-between gap-6 mt-10 items-stretch
+        flex-col
+        md:flex-row
+        ">
           <PaymentHistory />
           <RecentActivity />
         </div>
-        <div className="flex justify-between gap-6 mt-10 items-stretch">
+        <div className="flex justify-between gap-6 mt-10 items-stretch
+        flex-wrap
+        lg:flex-nowrap
+        ">
           <VisitorsByBrowser/>
           <SocialMediaList />
         </div>

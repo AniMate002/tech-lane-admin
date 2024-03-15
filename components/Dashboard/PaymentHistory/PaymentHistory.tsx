@@ -9,7 +9,10 @@ const PaymentHistory = () => {
         return <PaymentItem key={payment.id} {...payment}/>
     })
     return (
-        <InnerContainer className="w-[50%]">
+        <InnerContainer className="
+        w-full
+        md:w-[50%]
+        ">
             <ContainerHeader title="Payment History"/>
             <div className="flex gap-4 flex-col">
                 { renderedPayments }
