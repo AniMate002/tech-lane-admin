@@ -7,29 +7,42 @@ import { IProduct } from "@/app/products/new/page";
 import axios from "axios";
 import ProductsSearchForm from "./ProductsSearchForm";
 import { useSearchParams } from "next/navigation";
+import Loading from "../Reusable/Loading";
+import ErrorComponent from "../Reusable/ErrorComponent";
 
 
 const ProductsPage = () => {
     const [sortedProducts, setSortedProducts] = useState<Array<IProduct>>([])
     const [products, setProducts] = useState<Array<IProduct>>()
     const searchParams = useSearchParams()
+    const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
         const title = searchParams.get('title')
         if(title){
             axios.get('/api/products?title=' + title)
                 .then(res => {
-                    console.log(res.data.products)
                     setProducts(res.data.products)
+                    setError(null)
                 })
         }else {
             axios.get('/api/products')
-                .then(res => setProducts(res.data))
+                .then(res => {
+                    setProducts(res.data)
+                    setError(null)
+                })
+                .catch(e => {
+                    const errorMessage = e instanceof Error ? e.message : "Unknown Error"
+                    setError(errorMessage)
+                })
         }
     }, [searchParams])
 
+    if(error){
+        return <ErrorComponent errorMessage={error}/>
+    }
     if(!products){
-        return <h1>Loading products...</h1>
+        return <Loading title="Products"/>
     }
     return (
         <div>

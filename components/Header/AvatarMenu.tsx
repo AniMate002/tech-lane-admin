@@ -40,7 +40,9 @@ const AvatarMenu:React.FC<AvatarMenuProps> = ({ user, setShowMenu }) => {
                 <LinkBox href="/" title="Message Inbox" svg="fa-solid fa-envelope-open-text"/>
                 <LinkBox href="/" title="Support Tickets" svg="fa-solid fa-ticket"/>
             </div>
-            <button onClick={e => hideMenuHandler(e)} className="fa-solid fa-caret-down rotate-[45deg] text-slate-500 origin-center absolute bottom-4 left-4 hover:text-white transition-all duration-200 hover:scale-[1.5]"></button>
+            <button onClick={e => hideMenuHandler(e)} className="text-slate-500 origin-center bg-slate-700 px-4 py-2 rounded-lg mx-auto block mt-2 w-full hover:bg-slate-600  hover:text-white transition-all duration-200">
+                <span>Close</span>
+            </button>
         </div>
     );
 }

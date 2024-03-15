@@ -6,6 +6,8 @@ import { useRouter, usePathname } from "next/navigation";
 import { FormEvent, useEffect, useState } from "react";
 import { ICategory } from "@/models/Category";
 import { IProduct } from "@/app/products/new/page";
+import Loading from "@/components/Reusable/Loading";
+import ErrorComponent from "@/components/Reusable/ErrorComponent";
 
 
 async function getProduct(_id: string):Promise<IProduct>{
@@ -25,6 +27,7 @@ async function getCategories():Promise<Array<ICategory>>{
 const EditProductForm = () => {
     const router = useRouter()
     const pathname = usePathname()
+    const [error, setError] = useState<string | null>(null)
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState(0)
@@ -71,6 +74,10 @@ const EditProductForm = () => {
         const updatedProduct = {title, description, price, country, image, category, colors, memories}
         axios.put(`/api/products/edit/${_id}`, updatedProduct)
             .then(() => router.replace('/products'))
+            .catch(e => {
+                const errorMessage = e instanceof Error ? e.message : "Unknown Error"
+                setError(errorMessage)
+            })
 
         // console.log("Current ID: ", { _id })
     }
@@ -89,10 +96,31 @@ const EditProductForm = () => {
                 setColors(product.colors)
                 setMemories(product.memories)
             })
+            .catch(e => {
+                const errorMessage = e instanceof Error ? e.message : "Unknown Error"
+                setError(errorMessage)
+            }) 
         
-        getCategories().then(cat => setCategories(cat))
+        getCategories()
+            .then(cat => {
+                setCategories(cat)
+            })
+            .catch(e => {
+                const errorMessage = e instanceof Error ? e.message : "Unknown Error"
+                setError(errorMessage)
+            }) 
         
     }, [pathname])
+
+    if(!title && !description && !price && !country && !image && !categories && colors.length === 0 && memories.length === 0 ){
+        const quer = pathname.split('/')
+        const _id = quer[quer.length - 1]
+        return <Loading title={"Product: " + _id}/>
+    }
+
+    if(error){
+        return <ErrorComponent errorMessage={error}/>
+    }
 
     const renderedCategories = categories?.map(cat => {
         return <option key={cat.name} value={cat.name}>{cat.name}</option>
