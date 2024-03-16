@@ -17,7 +17,7 @@ export default function ProductsLayout({
   return (
     <div className="flex w-[100%] bg-white">
         <Navigation />
-        <div className="flex-grow">
+        <div className="flex-grow max-w-[100vw] overflow-x-hidden">
             <Header />
             <main>
               <OuterContainer>

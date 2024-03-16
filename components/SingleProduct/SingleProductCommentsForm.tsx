@@ -23,12 +23,12 @@ const SingleProductCommentsForm:React.FC<SingleProductCommentsFormProps> = (prod
     }
     return (
         <form onSubmit={e => sendCommentHandler(e)} className="mt-10">
-            <label className="flex items-center gap-4">
-                <span className="text-blue-300 inline-flex justify-center items-center py-2 w-[100px] bg-slate-100 rounded-lg font-bold">Author:</span>
+            <label className="flex items-center [@media(min-width:420px)]:gap-4 gap-1">
+                <span className="text-blue-300 inline-flex justify-center items-center py-2 [@media(min-width:420px)]:w-[100px] w-[50px] [@media(min-width:420px)]:text-base text-[12px] bg-slate-100 rounded-lg font-bold">Author:</span>
                 <input value={author} onChange={e => setAuthor(e.target.value)} name="country" type="text" placeholder="Admin..." className="mt-2 border-b-2 px-4 py-2 flex-grow"/>
             </label>
-            <label className="flex items-start mt-4 gap-4">
-                <span className="text-blue-300 inline-flex justify-center items-center py-2 w-[100px] bg-slate-100 rounded-lg font-bold">Text:</span>
+            <label className="flex items-start mt-4 [@media(min-width:420px)]:gap-4 gap-1">
+                <span className="text-blue-300 inline-flex justify-center items-center py-2 [@media(min-width:420px)]:w-[100px] w-[50px] [@media(min-width:420px)]:text-base text-[12px] bg-slate-100 rounded-lg font-bold">Text:</span>
                 <textarea value={body} onChange={e => setBody(e.target.value)} name="country" placeholder="Text..." className="mt-2 border-b-2 px-4 py-2 flex-grow focus:outline-none"/>
             </label>
             <button type="submit" className="mt-6 w-full py-2 justify-center  bg-blue-500 text-white rounded-lg hover:bg-slate-200 hover:text-black transition-all duration-200 inline-flex items-center gap-2">

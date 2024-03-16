@@ -14,7 +14,7 @@ const CategoriesList:React.FC<CategoriesListProps> = ({ categories }) => {
         <div>
             <h3 className="text-xl text-slate-600 text-center uppercase font-bold">All categories</h3>
             <hr className="my-12"/>
-            <div className="flex flex-wrap justify-between gap-10">
+            <div className="flex flex-wrap justify-center gap-10">
                 { renderedCategories }
             </div>
         </div>

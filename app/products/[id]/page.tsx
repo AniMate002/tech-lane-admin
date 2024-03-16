@@ -39,7 +39,10 @@ const SingleProductPage = () => {
     return (
         <div>
             <SingleProductInfo {...product}/>
-            <div className="flex justify-between mt-6 gap-6">
+            <div className="flex justify-between mt-6 gap-6
+            flex-col
+            xl:flex-row
+            ">
                 <SingleProductGraph title={product.title}/>
                 <InnerContainer className="flex-grow">
                     <ContainerHeader title="Comments"/>

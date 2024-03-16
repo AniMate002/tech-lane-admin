@@ -43,7 +43,10 @@ const SingleProductGraph = ({ title }: {title: string}) => {
         })
     }, [sales, title])
     return (
-        <InnerContainer className="w-[50%]">
+        <InnerContainer className="
+        w-full
+        xl:w-[50%]
+        ">
             <ContainerHeader title={"Sales of " + title} />
 
             {data 

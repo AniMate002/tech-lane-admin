@@ -6,9 +6,10 @@ export interface OuterContainerProps extends DetailedHTMLProps<HTMLAttributes<HT
 
 const OuterContainer:React.FC<OuterContainerProps> = ({children}) => {
     return (
-        <div className="py-10 px-5 bg-[#f5f6ff] mt-[-100px] rounded-xl min-h-[150px]
-        mx-2
-        lg:mx-10
+        <div className="py-10 bg-[#f5f6ff] mt-[-100px] rounded-xl min-h-[150px]
+        mx-0 px-2
+        [@media(min-width:560px)]:mx-2
+        [@media(min-width:760px)]:mx-10 lg:px-5
         ">
             <OuterContHeader />
             {children}

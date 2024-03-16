@@ -52,17 +52,17 @@ const LogInPage = () => {
             })
     }
     return (
-        <div className=" w-[500px] text-center bg-white p-16 rounded-2xl relative">
+        <div className="  md:w-[500px] w-[96%] text-center bg-white md:px-16 py-16 p-6 rounded-2xl relative mx-auto">
             <Link href={'/'} className="absolute left-6 top-6 text-blue-500">
                 <i className="fa-solid fa-angle-left"></i>
                 <span>Go back</span>
             </Link>
-            <h1 className={nunito.className + " text-6xl font-bold text-blue-500"}>Log in</h1>
-            <p className="text-slate-400 mt-4 text-sm ">Secure Your Communications with TechLane</p>
+            <h1 className={nunito.className + "  sm:text-6xl text-4xl font-bold text-blue-500"}>Log in</h1>
+            <p className="text-slate-400 mt-4 text-sm  ">Secure Your Communications with TechLane</p>
             <form onSubmit={e => logUpClickHandler(e)} className="mt-10">
                 <AuthInput value={credentials.email} onChange={e => setCredentials((prev) => ({...prev, email: e.target.value}))} type="email" svgCode="fa-regular fa-at" placeholder="Email address..." className="mx-auto mt-10" required/>
                 <AuthInput value={credentials.password} onChange={e => setCredentials((prev) => ({...prev, password: e.target.value}))} type="password" svgCode="fa-solid fa-lock" placeholder="User Name..." className="mx-auto mt-10" required/>
-                <button type="submit" className="text-white bg-blue-600 px-10 py-3 rounded-full mt-10 flex items-center gap-4">
+                <button type="submit" className="text-white bg-blue-600 sm:px-10 sm:py-3 px-4 py-2 rounded-full sm:text-base text-sm mt-10 flex items-center gap-4">
                     <span>Sign Up</span>
                     <div className="flex w-[50px] h-[30px] bg-blue-500 rounded-full items-center justify-center">
                         {session.status === 'loading'

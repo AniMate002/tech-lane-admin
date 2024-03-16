@@ -153,7 +153,7 @@ const EditProductForm = () => {
                         { memories.length > 0 ? renderMemories(memories) : <p className="text-slate-400 text-sm">No memory selected...</p>}
                     </div>
                     <p className="mt-4 mb-1 text-gray-500">All memories</p>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 ">
                         { renderMemories(AllMemories) }
                     </div>
                 </InnerContainer>

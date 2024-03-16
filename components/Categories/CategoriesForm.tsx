@@ -26,15 +26,18 @@ const CategoriesForm:React.FC<CategoriesFormProps> = ({ categories }) => {
         <form onSubmit={e => addCategoryHandler(e)}>
             <h3 className="text-xl text-slate-600 text-center uppercase font-bold">Add new category</h3>
             <hr className="my-12"/>
-            <div className="flex justify-around">
+            <div className="flex 
+            flex-wrap justify-center gap-4 items-center
+            lg:flex-nowrap lg:justify-around
+            ">
                 <label>
                     <p className="text-slate-500 text-xl">Name</p>
-                    <hr className="w-[300px] my-4"/>
+                    <hr className="lg:w-[300px] w-full lg:my-4 my-2"/>
                     <input value={name} onChange={e => setName(e.target.value)} type="text" placeholder="Category name..." className="mt-2 rounded-lg border-2 px-4 py-2 w-[300px]"/>
                 </label>
                 <label>
                     <p className="text-slate-500 text-xl">Parent category</p>
-                    <hr className="w-[300px] my-4"/>
+                    <hr className="w-[300px] lg:my-4 my-2"/>
                     <select value={parent} onChange={e => setParent(e.target.value)} className="mt-2 rounded-lg border-2 px-4 py-2 w-[300px] focus:outline-0">
                         <option value="">No parent</option>
                         { renderedCatOptions }
@@ -42,8 +45,8 @@ const CategoriesForm:React.FC<CategoriesFormProps> = ({ categories }) => {
                 </label>
                 <label>
                     <p className="text-slate-500 text-xl">SVG code</p>
-                    <hr className="w-[300px] my-4"/>
-                    <input value={svgCode} onChange={e => setSvg(e.target.value)} placeholder="SVG code..." className="mt-2 rounded-lg border-2 px-4 py-2 w-[400px] focus:outline-0" />
+                    <hr className="w-[300px] lg:my-4 my-2"/>
+                    <input value={svgCode} onChange={e => setSvg(e.target.value)} placeholder="SVG code..." className="mt-2 rounded-lg border-2 px-4 py-2 w-[300px] md:w-[400px] focus:outline-0" />
                 </label>
             </div>
             <BlueBtn type="submit" className="mx-auto mt-10">

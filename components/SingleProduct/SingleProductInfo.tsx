@@ -19,16 +19,19 @@ const SingleProductInfo:React.FC<SingleProductInfoProps> = (product) => {
     const route = useParams()
     const renderedColors = product?.colors?.map((color: string) => <div className={`w-[35px] h-[35px] rounded-full border-[1px] border-slate-200 ${color}Bg`} key={color} />)
     return (
-        <InnerContainer className="flex items-center justify-between w-full">
-            <div className="w-[500px] h-[500px] overflow-hidden flex items-center justify-center rounded-xl flex-shrink-0">
-                <Image width={500} height={500} src={product?.image} alt={product?.description} />
+        <InnerContainer className="flex items-center justify-between w-full
+        flex-col
+        2xl:flex-row
+        ">
+            <div className="md:w-[500px] md:h-[500px] sm:w-[400px] sm:h-[400px] w-full overflow-hidden flex items-center justify-center rounded-xl flex-shrink-0">
+                <Image width={500} height={500} src={product?.image} alt={product?.description} className="min-w-full min-h-full"/>
             </div>
             <div className="text-center flex-grow pt-6">
                 <h3 className={cabin.className + " font-bold text-4xl text-slate-700"}>{product?.title}</h3>
                 <p className="mt-2 text-blue-500">{product?.country}</p>
-                <p className={inter.className + " text-5xl font-bold mt-10 text-slate-600"}>${product?.price}</p>
+                <p className={inter.className + " lg:text-5xl text-xl font-bold lg:mt-10 mt-4 text-slate-600"}>${product?.price}</p>
                 <hr className="w-[70px] mx-auto mt-6 h-[3px] rounded-full bg-blue-300"/>
-                <p className="w-[600px] text-sm text-slate-600 mt-6 mx-auto">{product?.description}</p>
+                <p className="md:w-[600px] w-full sm:text-sm text-[10px] text-slate-600 mt-6 mx-auto">{product?.description}</p>
                 <p className="px-4 py-1 bg-blue-400 text-white w-fit rounded-xl mx-auto mt-4">{product?.category}</p>
                 <h4 className={cabin.className + " uppercase text-slate-700 mt-6"}>available colors</h4>
                 <div className="flex justify-center gap-4 items-center mt-4">
