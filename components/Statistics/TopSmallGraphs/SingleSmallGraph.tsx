@@ -65,7 +65,7 @@ const SingleSmallGraph:React.FC<SingleSmallGraphProps> = ({ icon, title, prevMon
                                 : <i className="fa-solid fa-caret-down text-red-600"></i>
                             }
                         </span>
-                        <p className="text-slate-500 text-[12px] italic">{prevMonthData} vs {currSum}</p>
+                        <p className="text-slate-500 text-[12px] font-bold">{prevMonthData} vs {currSum}</p>
                     </div>
                 </div>
             </div>

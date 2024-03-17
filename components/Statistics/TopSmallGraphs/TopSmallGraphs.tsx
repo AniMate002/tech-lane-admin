@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import SingleSmallGraph from "./SingleSmallGraph";
 import { IMonthUsers } from "@/models/MonthUsers";
 import { IMonthLeads } from "@/models/MonthLeads";
+import GreyContainer from "@/components/Containers/GreyContainer";
 
 
 
@@ -43,16 +44,16 @@ const TopSmallGraphs = () => {
     //     axios.post('/api/statistics/leads', newData).then(() => alert("success"))
     // }
     return (
-        <div className="flex items-center justify-center">
-            <OuterContainer noMx>
+        <div className="flex items-center justify-between mt-[-100px]">
+            <GreyContainer className="px-4 py-10 hover:scale-[1.05] transition-all duration-200">
                 <SingleSmallGraph data={monthContacts.newContacts} icon="fa-solid fa-phone" month={monthContacts.month} prevMonthData={monthContacts.prevMonthSum} title="New Contacts" color="59,130,246"/>
-            </OuterContainer>
-            <OuterContainer noMx>
+            </GreyContainer>
+            <GreyContainer className="px-4 py-10 hover:scale-[1.05] transition-all duration-200">
                 <SingleSmallGraph data={monthUsers.newUsers} icon="fa-solid fa-user" month={monthUsers.month} prevMonthData={monthUsers.prevMonthSum} title="New Users" color="220,193,100"/>
-            </OuterContainer>
-            <OuterContainer noMx>
+            </GreyContainer>
+            <GreyContainer className="px-4 py-10 hover:scale-[1.05] transition-all duration-200">
                 <SingleSmallGraph data={monthLeads.newLeads} icon="fa-solid fa-user" month={monthLeads.month} prevMonthData={monthLeads.prevMonthSum} title="New Leads" color="125,230,105"/>
-            </OuterContainer>
+            </GreyContainer>
         </div>
     );
 }
