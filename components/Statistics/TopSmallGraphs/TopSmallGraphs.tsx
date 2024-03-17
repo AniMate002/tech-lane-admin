@@ -4,45 +4,21 @@ import OuterContainer from "@/components/Containers/OuterContainer";
 import Loading from "@/components/Reusable/Loading";
 import { IMonthContacts } from "@/models/MonthContacts";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import SingleSmallGraph from "./SingleSmallGraph";
 import { IMonthUsers } from "@/models/MonthUsers";
 import { IMonthLeads } from "@/models/MonthLeads";
 import GreyContainer from "@/components/Containers/GreyContainer";
 
+interface TopSmallGraphsProps{
+    monthContacts: IMonthContacts,
+    monthUsers: IMonthUsers,
+    monthLeads: IMonthLeads
+}
 
 
-const TopSmallGraphs = () => {
-    const [monthContacts, setMonthContacts] = useState<IMonthContacts>()
-    const [monthUsers, setMonthUsers] = useState<IMonthUsers>()
-    const [monthLeads, setLeads] = useState<IMonthLeads>()
 
-    useEffect(() => {
-        axios.get('/api/statistics/contacts')
-            .then(res => {
-                const currMonth = res.data[res.data.length - 1]
-                setMonthContacts(currMonth)
-            })
-        
-        axios.get('/api/statistics/users')
-            .then(res => {
-                const currMonth = res.data[res.data.length - 1]
-                setMonthUsers(currMonth)
-            })
-
-        axios.get('/api/statistics/leads')
-            .then(res => {
-                const currMonth = res.data[res.data.length - 1]
-                setLeads(currMonth)
-            })
-    }, [])
-    if(!monthContacts || !monthUsers || !monthLeads){
-        return <Loading />
-    }
-    // function addDataHandler(){
-    //     const newData:IMonthLeads = {month:"Jun", newLeads: [200, 150, 175, 130, 150, 115, 230], prevMonthSum: 1427}
-    //     axios.post('/api/statistics/leads', newData).then(() => alert("success"))
-    // }
+const TopSmallGraphs:React.FC<TopSmallGraphsProps> = ({ monthContacts, monthLeads, monthUsers}) => {
     return (
         <div className="flex items-center justify-between mt-[-100px]">
             <GreyContainer className="px-4 py-10 hover:scale-[1.05] transition-all duration-200">

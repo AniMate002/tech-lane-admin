@@ -436,3 +436,18 @@ export const TabsProfit:Array<ITabsStat> = [
     { _id: 24, date: "2024-01-24", value: 573 },
     { _id: 25, date: "2024-01-25", value: 837 },
 ]
+
+export interface IMostLeads {
+    _id: number,
+    title: string,
+    value: number,
+    color: string,
+    icon: string
+}
+
+export const MostLeadsData:Array<IMostLeads> = [
+    { _id: 1, title: "Email", value: 5200, color:"#44b2f2", icon: "fa-regular fa-envelope" },
+    { _id: 2, title: "Social", value: 5623, color:"#3b82f6", icon: "fa-solid fa-user-group" },
+    { _id: 3, title: "Call", value: 2535, color:"#f5803e", icon: "fa-solid fa-phone" },
+    { _id: 4, title: "Other", value: 1256, color:"#3788d8", icon: "fa-solid fa-otter" },
+]
