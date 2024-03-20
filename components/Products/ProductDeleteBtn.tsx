@@ -1,5 +1,6 @@
 'use client'
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 
 interface ProductDeleteBtnProps {
@@ -8,6 +9,7 @@ interface ProductDeleteBtnProps {
 }
 
 const ProductDeleteBtn:React.FC<ProductDeleteBtnProps> = ({ title, id }) => {
+    const router = useRouter()
     function showDeleteModal(){
         Swal.fire({
             title: 'Hmmm...',
@@ -21,7 +23,8 @@ const ProductDeleteBtn:React.FC<ProductDeleteBtnProps> = ({ title, id }) => {
             if(data.isConfirmed){
                 axios.delete(`/api/products/delete/${id}`)
                     .then(res => {
-                        console.log(res.data)
+                        // console.log(res.data)
+                        router.push('/products')
                         window.location.reload()
                     })
             }

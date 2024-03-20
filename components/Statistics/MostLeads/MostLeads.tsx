@@ -2,6 +2,7 @@ import GreyContainer from "@/components/Containers/GreyContainer";
 import MostLeadsGraph from "./MostLeadsGraph";
 import { MostLeadsData } from "@/components/Data";
 import MostLeadsInfo from "./MostLeadsInfo";
+import MostLeadsButtons from "./MostLeadsButtons";
 
 
 const MostLeads = () => {
@@ -12,6 +13,7 @@ const MostLeads = () => {
             <div className="h-[1px] bg-slate-200 mt-4"/>
             <MostLeadsGraph data={MostLeadsData}/>
             <MostLeadsInfo data={MostLeadsData}/>
+            <MostLeadsButtons />
         </GreyContainer>
     );
 }

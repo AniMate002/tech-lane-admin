@@ -9,6 +9,8 @@ import { IMonthContacts } from "@/models/MonthContacts";
 import { IMonthUsers } from "@/models/MonthUsers";
 import { IMonthLeads } from "@/models/MonthLeads";
 import axios from "axios";
+import DealForecast from "./DealForecast.tsx/DealForecast";
+import DealVSGoal from "./DealVSGoal/DealVSGoal";
 
 
 const StatisticsPage = () => {
@@ -43,9 +45,15 @@ const StatisticsPage = () => {
     return (
         <div className="px-10">
             <TopSmallGraphs monthContacts={monthContacts} monthLeads={monthLeads} monthUsers={monthUsers}/>
-            <div className="flex gap-6 mt-6 items-start">
-                <TabGraph />
+            <div className="flex gap-6 mt-6 items-stretch">
+                <div className="w-[70%] flex flex-col justify-between gap-6">
+                    <TabGraph />
+                    <DealForecast />
+                </div>
                 <MostLeads />
+            </div>
+            <div className="flex items-stretch gap-6 mt-6">
+                <DealVSGoal />
             </div>
         </div>
     );

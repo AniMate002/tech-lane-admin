@@ -39,7 +39,7 @@ const TabGraph = () => {
         setSum(newSum)
     }, [data])
     return (
-        <GreyContainer className="py-8 px-6 w-[70%]">
+        <GreyContainer className="py-8 px-6 flex-shrink-0">
             <Tabs activeTab={activeTab} setActiveTab={setActiveTab}/>
             <div className="flex mt-8">
                 <TabInfo sum={sum}/>
