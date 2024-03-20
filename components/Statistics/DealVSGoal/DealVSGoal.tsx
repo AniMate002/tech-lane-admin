@@ -33,7 +33,7 @@ const DealVSGoal = () => {
     }
 
     return (
-        <GreyContainer className="mt-0 px-4 py-6 w-[60%] relative">
+        <GreyContainer className="mt-0 px-4 py-6 w-[55%] relative">
             <h3 className="text-slate-500 font-semibold">Deal Closed vs Goal</h3>
             <DealVSGoalLegend toggleClosedAmount={toggleClosedAmount} toggleRevenueGoal={toggleRevenueGoal}/>
             <span className="absolute rotate-[270deg] top-[50%] left-6 origin-left  text-sm text-slate-500 font-bold">Closed Amount</span>

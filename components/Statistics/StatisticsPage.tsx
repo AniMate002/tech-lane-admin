@@ -11,6 +11,8 @@ import { IMonthLeads } from "@/models/MonthLeads";
 import axios from "axios";
 import DealForecast from "./DealForecast.tsx/DealForecast";
 import DealVSGoal from "./DealVSGoal/DealVSGoal";
+import Owners from "./Owners/Owners";
+import { IOwner } from "@/models/Owner";
 
 
 const StatisticsPage = () => {
@@ -18,16 +20,19 @@ const StatisticsPage = () => {
     const [monthContacts, setMonthContacts] = useState<IMonthContacts>()
     const [monthUsers, setMonthUsers] = useState<IMonthUsers>()
     const [monthLeads, setLeads] = useState<IMonthLeads>()
+    const [owners, setOwners] = useState<Array<IOwner>>()
     useEffect(() => {
         setStatus("loading")
         Promise.all([
             axios.get('/api/statistics/contacts').then(res => res.data[res.data.length - 1]),
             axios.get('/api/statistics/users').then(res => res.data[res.data.length - 1]),
-            axios.get('/api/statistics/leads').then(res => res.data[res.data.length - 1])
-        ]).then(([contacts, users, leads]) => {
+            axios.get('/api/statistics/leads').then(res => res.data[res.data.length - 1]),
+            axios.get('/api/statistics/owners').then(res => res.data)
+        ]).then(([contacts, users, leads, owners]) => {
             setMonthContacts(contacts);
             setMonthUsers(users);
             setLeads(leads);
+            setOwners(owners)
             setStatus("success");
         }).catch(error => {
             console.error("Error fetching data:", error);
@@ -39,7 +44,7 @@ const StatisticsPage = () => {
     if(status === "loading"){
         return <OuterContainer><Loading title="Loading Statistics"/></OuterContainer>
     }
-    if(!monthContacts || !monthLeads || !monthUsers){
+    if(!monthContacts || !monthLeads || !monthUsers || !owners){
         return <OuterContainer><Loading title="Loading Statistics"/></OuterContainer>
     }
     return (
@@ -54,6 +59,7 @@ const StatisticsPage = () => {
             </div>
             <div className="flex items-stretch gap-6 mt-6">
                 <DealVSGoal />
+                <Owners owners={owners}/>
             </div>
         </div>
     );
