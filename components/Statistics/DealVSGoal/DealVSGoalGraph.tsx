@@ -43,7 +43,7 @@ const DealVSGoalGraph = ({ labels, closedAmount, revenueGoal}: { labels: Array<s
 
     if(grapthOption){
         return (
-            <div className='ml-8 mt-4'>
+            <div className='sm:ml-8 ml-5 mt-4'>
                 <Line data={grapthOption} options={{plugins:{tooltip:{ mode: 'index'}, legend: { display: false}}, scales: {x: { grid: { display: false}}}}} />
             </div>
         );

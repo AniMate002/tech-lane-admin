@@ -52,11 +52,11 @@ const SingleSmallGraph:React.FC<SingleSmallGraphProps> = ({ icon, title, prevMon
         <div className="flex gap-2 items-end">
             <div>
                 <div className="flex gap-2 items-center">
-                    <span style={{color: `rgb(${color})`, backgroundColor: `rgba(${color}, 0.3)`}} className={`flex items-center justify-center w-[40px] h-[40px] rounded-full`}><i className={icon}></i></span>
+                    <span style={{color: `rgb(${color})`, backgroundColor: `rgba(${color}, 0.3)`}} className={`flex items-center justify-center xl:w-[40px] xl:h-[40px] xl:text-base text-[12px] w-[25px] h-[25px] rounded-full`}><i className={icon}></i></span>
                     <p className="font-bold text-slate-500">{title}</p>
                 </div>
-                <div className="flex mt-4 gap-2">
-                    <span className="text-5xl text-slate-500">{Math.abs(percentage)}%</span>
+                <div className="flex mt-4 gap-2 items-center">
+                    <span className="xl:text-5xl text-2xl text-slate-500">{Math.abs(percentage)}%</span>
                     <div>
                         <span className="text-xl">
                             {
@@ -65,11 +65,11 @@ const SingleSmallGraph:React.FC<SingleSmallGraphProps> = ({ icon, title, prevMon
                                 : <i className="fa-solid fa-caret-down text-red-600"></i>
                             }
                         </span>
-                        <p className="text-slate-500 text-[12px] font-bold">{prevMonthData} vs {currSum}</p>
+                        <p className="text-slate-500 text-[12px] font-bold mt-[-10px] xl:mt-[-5px]">{prevMonthData} vs {currSum}</p>
                     </div>
                 </div>
             </div>
-            <div className="h-[100px]">
+            <div className="xl:h-[100px] h-[40px]">
                 <Line data={graphOptions} options={{scales: { x: {display: false}, y: { display: false}}, plugins: {legend: {display: false}}}}/>
             </div>
         </div>

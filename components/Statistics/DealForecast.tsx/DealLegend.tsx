@@ -11,7 +11,7 @@ const DealLegend = ({ data } : {data: Array<IDealItem>}) => {
         </div>
     ))
     return (
-        <div className="flex items-center gap-6 mt-4">
+        <div className="flex items-center sm:gap-6 mt-4 flex-wrap gap-2">
             { renderedLegendItems }
         </div>
     );

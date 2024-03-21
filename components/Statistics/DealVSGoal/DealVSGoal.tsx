@@ -33,10 +33,10 @@ const DealVSGoal = () => {
     }
 
     return (
-        <GreyContainer className="mt-0 px-4 py-6 w-[55%] relative">
+        <GreyContainer className="mt-0 px-4 py-6 xl:w-[55%] w-full relative">
             <h3 className="text-slate-500 font-semibold">Deal Closed vs Goal</h3>
             <DealVSGoalLegend toggleClosedAmount={toggleClosedAmount} toggleRevenueGoal={toggleRevenueGoal}/>
-            <span className="absolute rotate-[270deg] top-[50%] left-6 origin-left  text-sm text-slate-500 font-bold">Closed Amount</span>
+            <span className="absolute rotate-[270deg] sm:top-[50%] top-[70%] sm:left-6 left-3 origin-left  text-sm text-slate-500 font-bold">Closed Amount</span>
             <DealVSGoalGraph labels={labels} closedAmount={closedAmountCurrent} revenueGoal={revenueGoalCurrent}/>
         </GreyContainer>
     );

@@ -48,16 +48,16 @@ const StatisticsPage = () => {
         return <OuterContainer><Loading title="Loading Statistics"/></OuterContainer>
     }
     return (
-        <div className="px-10">
+        <div className="xl:px-10">
             <TopSmallGraphs monthContacts={monthContacts} monthLeads={monthLeads} monthUsers={monthUsers}/>
-            <div className="flex gap-6 mt-6 items-stretch">
-                <div className="w-[70%] flex flex-col justify-between gap-6">
+            <div className="flex gap-6 mt-6 items-stretch xl:flex-row flex-col-reverse">
+                <div className="xl:w-[70%] w-full flex flex-col-reverse justify-between gap-6">
                     <TabGraph />
                     <DealForecast />
                 </div>
                 <MostLeads />
             </div>
-            <div className="flex items-stretch gap-6 mt-6">
+            <div className="flex items-stretch gap-6 mt-6 xl:flex-row flex-col">
                 <DealVSGoal />
                 <Owners owners={owners}/>
             </div>
