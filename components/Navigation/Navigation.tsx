@@ -5,7 +5,7 @@ import HideMenuBtn from "./HideMenuBtn";
 const Navigation = () => {
     
     return (
-        <aside className="gsap_navigation_menu min-h-[100%] pr-10 flex-shrink-0 min-w-[300px]
+        <aside className="gsap_navigation_menu min-h-[100vh] pr-10 flex-shrink-0 min-w-[300px]
         fixed bg-white z-20 right-full
         lg:block lg:shadow-slate-200 lg:shadow-2xl lg:opacity-[1] lg:static
         ">
