@@ -1,6 +1,6 @@
 {
   "name": "tech-lane-admin",
-  "version": "0.20.0",
+  "version": "0.20.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -21,7 +21,9 @@
     "react": "^18",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18",
-    "sweetalert2": "^11.6.13"
+    "sweetalert2": "^11.6.13",
+    "v-calendar": "^3.1.2",
+    "vanilla-calendar-pro": "^2.9.6"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",

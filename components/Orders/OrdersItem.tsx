@@ -32,7 +32,7 @@ const OrdersItem = ({ order }: { order: IOrder }) => {
     }, []);
 
     return (
-        <div className="flex items-center justify-between text-slate-500 font-semibold">
+        <div className="flex items-center justify-between text-slate-500 font-semibold hover:shadow-sm py-3 xl:px-10 hover:bg-blue-50">
             <CheckBox />
             <span className="w-[10%] text-ellipsis overflow-hidden">{order._id}</span>
             <span className="w-[20%]">{order.date}</span>

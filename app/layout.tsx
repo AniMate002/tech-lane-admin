@@ -1,4 +1,5 @@
 import "./globals.css";
+import 'v-calendar/style.css';
 import { Providers } from "@/components/Auth/Providers"
 import { Nunito, Cabin, Inter } from "next/font/google";
 
