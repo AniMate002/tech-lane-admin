@@ -4,7 +4,10 @@ import CheckBox from "../Reusable/CheckBox";
 
 const OrdersTableHead = () => {
     return (
-        <div className="flex items-center justify-between text-slate-500 font-semibold hover:shadow-sm py-4 xl:px-10 bg-blue-50">
+        <div className="flex items-center justify-between text-slate-500 font-semibold hover:shadow-sm py-4 xl:px-10 bg-blue-50
+        text-[10px]
+        sm:text-base
+        ">
             <span className="opacity-0">
                 <CheckBox />
             </span>

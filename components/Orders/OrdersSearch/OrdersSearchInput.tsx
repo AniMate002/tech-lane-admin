@@ -3,7 +3,10 @@
 
 const OrdersSearchInput = () => {
     return (
-        <div className="flex items-center gap-6">
+        <div className="flex items-center 
+        flex-col gap-2
+        md:flex-row md:gap-6
+        ">
                 <label className="border-[1px] py-2 px-6 rounded-full flex items-center gap-2 w-fit">
                     <input type="text" placeholder="Search here" className=""/>
                     <button className="fa-solid fa-magnifying-glass text-blue-500 text-lg hover:text-blue-400 transition-all duration-200"></button>

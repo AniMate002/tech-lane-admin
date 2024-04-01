@@ -24,9 +24,12 @@ const OrdersSort = () => {
         <OptionFallingMenu icon={payment.icon} title={payment.title} key={payment.title}/>
     ))
     return (
-        <div className="flex items-center gap-12 rounded-full bg-blue-50 px-6 py-3 text-blue-500">
+        <div className="flex items-center px-6 py-3 text-blue-500
+        flex-col bg-blue-50 w-full rounded-lg gap-2
+        sm:flex-row sm:gap-12 sm:rounded-full sm:w-fit
+        ">
             <OrdersButton label="Date" icon="fa-solid fa-calendar-days">
-                <VanillaCalendar config={{settings:{visibility: { theme: "light"}}}}/>
+                <VanillaCalendar />
             </OrdersButton>
             <OrdersButton label="Order type" icon="fa-solid fa-plane-departure">
                 { renderedOrderTypes }

@@ -24,7 +24,7 @@ const OrdersPage = () => {
     }
     return (
         <div>
-            <GreyContainer className="w-[95%] mx-auto px-4 py-8 mt-[-50px]">
+            <GreyContainer className="sm:w-[95%] w-full mx-auto px-4 py-8 mt-[-50px]">
                 <OrdersHeader />
                 <OrdersSearchForm />
                 <OrdersList orders={orders}/>

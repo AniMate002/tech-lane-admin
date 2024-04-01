@@ -32,14 +32,20 @@ const OrdersItem = ({ order }: { order: IOrder }) => {
     }, []);
 
     return (
-        <div className="flex items-center justify-between text-slate-500 font-semibold hover:shadow-sm py-3 xl:px-10 hover:bg-blue-50">
+        <div className="flex items-center justify-between text-slate-500 font-semibold hover:shadow-sm py-3 xl:px-10 hover:bg-blue-50
+        text-[10px]
+        sm:text-base
+        ">
             <CheckBox />
             <span className="w-[10%] text-ellipsis overflow-hidden">{order._id}</span>
             <span className="w-[20%]">{order.date}</span>
             <span className="w-[10%]">{order.customer}</span>
             <span className="w-[20%]">{order.product}</span>
             <span className="w-[10%]">{order.price}</span>
-            <span style={{color: `rgb(${getColor(order.status)})`, backgroundColor: `rgba(${getColor(order.status)}, 0.1)`}} className="w-[100px] text-center uppercase text-[12px] px-4 py-2 font-bold rounded-full">{order.status}</span>
+            <span style={{color: `rgb(${getColor(order.status)})`, backgroundColor: `rgba(${getColor(order.status)}, 0.1)`}} className=" text-center uppercase   font-bold rounded-full
+            text-[8px]
+            sm:px-4 sm:py-2 sm:w-[100px] sm:text-[12px]
+            ">{order.status}</span>
             <button className="relative" ref={menuRef}>
                 <i onClick={() => setShowMenu(prev => !prev)} className="fa-solid fa-ellipsis py-2 px-4 rounded-lg hover:bg-slate-100"></i>
                 <FallingMenu show={showMenu}>

@@ -7,7 +7,10 @@ import OrdersSort from "./OrdersSearch/OrdersSort";
 
 const OrdersSearchForm = () => {
     return (
-        <InnerContainer className="mt-6 flex items-center justify-between">
+        <InnerContainer className="mt-6 flex items-center justify-between
+        flex-col
+        xl:flex-row
+        ">
             <OrdersSearchInput />
             <OrdersSort />
         </InnerContainer>

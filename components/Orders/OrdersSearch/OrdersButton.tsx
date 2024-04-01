@@ -22,8 +22,8 @@ const OrdersButton = ({icon, label, children, className}: {icon: string, label: 
         };
     }, []);
     return (
-        <button ref={btnRef} className={"relative flex items-center gap-4 " + className} onClick={() => setShowMenu(prev => !prev)}>
-            <i className={icon}></i>
+        <button ref={btnRef} className={"relative flex items-center gap-4 " + className} onClick={() => setShowMenu(true)}>
+            <i className={icon} onClick={() => setShowMenu(prev => !prev)}></i>
             <p>{ label }</p>
             <FallingMenu show={showMenu}>
                 { children }
